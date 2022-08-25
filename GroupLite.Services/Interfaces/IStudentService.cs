@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GroupLite.Services.Interfaces
 {
-    public interface IUnitService
+    public interface IStudentService
     {
     }
 }

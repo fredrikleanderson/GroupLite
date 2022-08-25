@@ -10,7 +10,12 @@ namespace GroupLite.Data
 {
     public class DataContext: DbContext
     {
+        public virtual DbSet<Teacher> Teachers { get; set; } = null!;
         public virtual DbSet<Student> Students { get; set; } = null!;
         public virtual DbSet<Unit> Units { get; set; } = null!;
+
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
+        {
+        }
     }
 }

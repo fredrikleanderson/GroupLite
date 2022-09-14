@@ -1,6 +1,6 @@
-using GroupLite.Services.Providers;
-using GroupLite.Services.Interfaces;
 using GroupLite.Data;
+using GroupLite.Handlers;
+using GroupLite.Utilities;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,9 +15,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("LocalSql")));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddScoped<ITeacherService, TeacherService>();
-builder.Services.AddScoped<IStudentService, StudentService>();
-builder.Services.AddScoped<IUnitService, UnitService>();
+builder.Services.AddSingleton<ICodeService, CodeService>();
+builder.Services.AddScoped<IDataService, DataService>();
+builder.Services.AddScoped<IUnitHandler, UnitHandler>();
 
 var app = builder.Build();
 

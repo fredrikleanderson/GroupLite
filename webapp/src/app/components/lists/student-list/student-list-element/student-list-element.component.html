@@ -1,0 +1,8 @@
+<li class="list-group-item">
+    {{student?.name}} {{student?.sex == 0 ? '♀' : '♂'}}
+    <!-- <button *ngIf="options?.includeDelete" class="btn btn-danger m-1" (click)="onToggleDeleteComponent()">Radera</button>
+    <button *ngIf="options?.includeChangeInfo" class="btn btn-primary m-1" (click)="onToggleChangeInfoComponent()">Ändra</button> -->
+    <!-- <app-delete-member-form *ngIf="showDelete" [member]="member" (deleteCancelled)="onToggleDeleteComponent()" (memberDeleted)="onMemberDeleted($event)"></app-delete-member-form>
+    <app-change-member-info-form *ngIf="showChangeInfo" [member]="member" (memberChanged)="onMemberChanged($event)"></app-change-member-info-form>
+    <ng-content></ng-content> -->
+</li>

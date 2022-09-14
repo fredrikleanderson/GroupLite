@@ -7,15 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="6.0.8" />
-    <PackageReference Include="microsoft.entityframeworkcore.tools" Version="6.0.8">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GroupLite.Data\GroupLite.Data.csproj" />
     <ProjectReference Include="..\GroupLite.Entities\GroupLite.Entities.csproj" />
+    <ProjectReference Include="..\GroupLite.Models\GroupLite.Models.csproj" />
     <ProjectReference Include="..\GroupLite.Utilities\GroupLite.Utilities.csproj" />
   </ItemGroup>
 

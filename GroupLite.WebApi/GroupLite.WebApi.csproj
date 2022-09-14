@@ -16,7 +16,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GroupLite.Data\GroupLite.Data.csproj" />
-    <ProjectReference Include="..\GroupLite.Services\GroupLite.Services.csproj" />
+    <ProjectReference Include="..\GroupLite.Handlers\GroupLite.Handlers.csproj" />
+    <ProjectReference Include="..\GroupLite.Utilities\GroupLite.Utilities.csproj" />
   </ItemGroup>
 
 </Project>

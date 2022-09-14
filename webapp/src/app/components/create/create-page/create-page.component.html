@@ -1,1 +1,6 @@
-<p>create-page works!</p>
+<div class="d-flex flex-column align-items-center">
+    <app-create-student-form (studentCreated)="onStudentCreated($event)"></app-create-student-form>
+    <app-student-list [students]="students"></app-student-list>
+    <button class="btn btn-primary m-1" (click)="showCreateUnit = !showCreateUnit">Spara</button>
+    <app-create-unit-form *ngIf="showCreateUnit" [students]="students"></app-create-unit-form>
+</div>

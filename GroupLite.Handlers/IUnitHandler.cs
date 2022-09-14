@@ -7,7 +7,7 @@ namespace GroupLite.Handlers
     {
         Task<UnitResponse> HandlePostReqeust(UnitRequest unitRequest);
         Task<UnitResponse> HandleGetRequest(string unitCode);
-        Task<UnitResponse> HandlePutRequest(UnitRequest unitRequest);
+        Task<UnitResponse?> HandlePutRequest(UnitRequest unitRequest);
         Task<bool> HandleDeleteRequest(string unitCode);
     }
 }

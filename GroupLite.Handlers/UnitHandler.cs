@@ -27,9 +27,9 @@ namespace GroupLite.Handlers
             return _mapper.Map<UnitResponse>(await _dataService.ReadUnit(unitCode));
         }
 
-        public Task<UnitResponse> HandlePutRequest(UnitRequest unitRequest)
+        public async Task<UnitResponse?> HandlePutRequest(UnitRequest unitRequest)
         {
-            throw new NotImplementedException();
+            return _mapper.Map<UnitResponse>(await _dataService.UpdateUnit(_mapper.Map<Unit>(unitRequest)));
         }
 
         public async Task<bool> HandleDeleteRequest(string unitCode)

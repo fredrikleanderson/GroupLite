@@ -37,7 +37,7 @@ namespace GroupLite.Data
             return await _context.Units.Include(x => x.Owner).Include(x => x.Members).FirstOrDefaultAsync(x => x.Code == code);
         }
 
-        public async Task<Unit> UpdateUnit(Unit unit)
+        public async Task<Unit?> UpdateUnit(Unit unit)
         {
             _context.Update(unit);
             await _context.SaveChangesAsync();

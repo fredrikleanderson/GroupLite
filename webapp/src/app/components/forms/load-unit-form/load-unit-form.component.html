@@ -1,0 +1,11 @@
+<form ngClass="d-flex flex-column align-items-center" autocomplete="off" (submit)="onLoadUnit($event)">
+    <div ngClass="col-sm mt-2">
+        <input type="text" ngClass="form-control" placeholder="Ange klasskod..." [(ngModel)]="unitCode" name="unitCode">
+    </div>
+    <div ngClass="d-flex flex-row justify-content-between col-sm mt-2">
+        <input type="submit" ngClass="btn btn-success mx-2" value="Ladda klass" [disabled]="!unitCode">
+    </div>
+    <div ngClass="col-sm mt-2">
+        <p ngClass="text-danger">{{message}}</p>
+    </div>
+</form>

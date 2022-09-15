@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Unit } from 'src/entities/unit';
+import { ActiveUnitService } from 'src/services/active-unit.service';
 
 @Component({
   selector: 'app-load-page',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoadPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activeUnitSvc:ActiveUnitService, private router:Router) { }
 
   ngOnInit(): void {
+  }
+
+  onUnitLoaded(unit:Unit){
+    console.log(unit)
+    this.activeUnitSvc.setActiveUnit(unit)
   }
 
 }

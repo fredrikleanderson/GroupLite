@@ -22,11 +22,11 @@ namespace GroupLite.WebApi.Controllers
             return response == null ? BadRequest() : Ok(response); 
         }
 
-        [HttpGet]
+        [HttpGet("{unitCode}")]
         public async Task<IActionResult> Get(string unitCode)
         {
             UnitResponse? response = await _unitHandler.HandleGetRequest(unitCode);
-            return response == null ? NotFound() : Ok(response);
+            return response == null ? NotFound("Felaktigt angiven klasskod.") : Ok(response);
         }
 
         [HttpPut]

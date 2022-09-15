@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Student } from 'src/entities/student';
 
 @Component({
   selector: 'app-create-page',
@@ -8,16 +7,9 @@ import { Student } from 'src/entities/student';
 })
 export class CreatePageComponent implements OnInit {
 
-  students:Student[] = []
-  showCreateUnit:boolean = false
-
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  onStudentCreated(student:Student){
-    this.students?.push(student)
   }
 
 }

@@ -13,6 +13,11 @@ import { LoadPageComponent } from './components/load/load-page/load-page.compone
 import { StartPageComponent } from './components/start/start-page/start-page.component';
 import { LoadUnitFormComponent } from './components/forms/load-unit-form/load-unit-form.component';
 import { ControlPageComponent } from './components/control/control-page/control-page.component';
+import { MemberListComponent } from './components/lists/member-list/member-list.component';
+import { MemberListElementComponent } from './components/lists/member-list/member-list-element/member-list-element.component';
+import { CreateUnitFormComponent } from './components/forms/create-unit-form/create-unit-form.component';
+import { CreateMemberFormComponent } from './components/forms/create-member-form/create-member-form.component';
+import { UnitOverviewComponent } from './components/control/unit-overview/unit-overview.component';
 
 
 @NgModule({
@@ -25,7 +30,12 @@ import { ControlPageComponent } from './components/control/control-page/control-
     LoadPageComponent,
     StartPageComponent,
     LoadUnitFormComponent,
-    ControlPageComponent
+    ControlPageComponent,
+    MemberListComponent,
+    MemberListElementComponent,
+    CreateUnitFormComponent,
+    CreateMemberFormComponent,
+    UnitOverviewComponent
   ],
   imports: [
     BrowserModule,

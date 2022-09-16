@@ -1,0 +1,5 @@
+<ul class="list-group" *ngFor="let member of members">
+    <app-member-list-element [member]="member">
+        <button *ngIf="options?.showRemove" class="btn" (click)="onRemoveMember($event, member)">⛔️</button>
+    </app-member-list-element>
+</ul>

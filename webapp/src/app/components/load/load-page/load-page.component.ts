@@ -16,8 +16,8 @@ export class LoadPageComponent implements OnInit {
   }
 
   onUnitLoaded(unit:Unit){
-    console.log(unit)
     this.activeUnitSvc.setActiveUnit(unit)
+    this.router.navigate(['control'])
   }
 
 }

@@ -1,0 +1,25 @@
+<h6>Lägg till medlemmar:</h6>
+<app-create-member-form (memberAdded)="onMemberAdded($event)"></app-create-member-form>
+<app-member-list [members]="model.members" [options]="{showRemove: true}" (memberRemoved)="onMemberRemoved($event)"></app-member-list>
+
+<h6>Dina uppgifter:</h6>
+<form ngClass="d-flex flex-column align-items-center" autocomplete="off" (submit)="onCreateUnit($event)">
+    <div ngClass="col-sm mt-2">
+        <input type="text" ngClass="form-control" placeholder="Förnamn..." [(ngModel)]="model.owner.firstName" name="ownerFirstName">
+    </div>
+    <div ngClass="col-sm mt-2">
+        <input type="text" ngClass="form-control" placeholder="Efternamn..." [(ngModel)]="model.owner.lastName" name="ownerLastName">
+    </div>
+    <div ngClass="col-sm mt-2">
+        <input type="text" ngClass="form-control" placeholder="E-postadress..." [(ngModel)]="model.owner.email" name="ownerEmail">
+    </div>
+    <div ngClass="col-sm mt-2">
+        <input type="text" ngClass="form-control" placeholder="Repetera e-postadress..." [(ngModel)]="repetedEmail" name="repeteOwnerEmail">
+    </div>
+    <div ngClass="d-flex flex-row justify-content-between col-sm mt-2">
+        <input type="submit" ngClass="btn btn-success mx-2" value="Skapa klass" [disabled]="!model.owner.firstName || !model.owner.lastName || model.owner.email != repetedEmail">
+    </div>
+    <div ngClass="col-sm mt-2">
+        <p ngClass="text-danger">{{message}}</p>
+    </div>
+</form>

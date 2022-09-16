@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject, Unsubscribable } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { Unit } from 'src/entities/unit';
 
@@ -8,9 +8,9 @@ import { Unit } from 'src/entities/unit';
 })
 export class ActiveUnitService {
 
-  private activeUnit = new Subject<Unit>()
+  private activeUnit = new BehaviorSubject<Unit|undefined>(undefined)
 
-  getActiveUnit():Observable<Unit>{
+  getActiveUnit():Observable<Unit|undefined>{
     return this.activeUnit.asObservable()
   }
 
@@ -20,5 +20,13 @@ export class ActiveUnitService {
 
   clearActiveUnit():void{
     this.activeUnit.complete
+  }
+
+  printActiveUnit():void{
+    this.activeUnit.asObservable().subscribe({
+      next: res => {
+        console.log(res)
+      }
+    })
   }
 }

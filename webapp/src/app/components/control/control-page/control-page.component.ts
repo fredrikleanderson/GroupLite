@@ -17,7 +17,7 @@ export class ControlPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.activeUnitSvc.getActiveUnit().subscribe({
-      next: res =>{
+      next: res => {
         this.unit = res
       }
     })
@@ -26,5 +26,4 @@ export class ControlPageComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscription.unsubscribe
   }
-
 }

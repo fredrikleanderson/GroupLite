@@ -25,8 +25,8 @@ export class LoadUnitFormComponent implements OnInit {
       },
       error: err =>{
         this.message = err.error
+        this.unitCode = ''
         setTimeout(() => {
-          this.unitCode = ''
           this.message = ''
         }, 3000)
       }

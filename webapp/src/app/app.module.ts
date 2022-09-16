@@ -17,7 +17,11 @@ import { MemberListComponent } from './components/lists/member-list/member-list.
 import { MemberListElementComponent } from './components/lists/member-list/member-list-element/member-list-element.component';
 import { CreateUnitFormComponent } from './components/forms/create-unit-form/create-unit-form.component';
 import { CreateMemberFormComponent } from './components/forms/create-member-form/create-member-form.component';
-import { UnitOverviewComponent } from './components/control/unit-overview/unit-overview.component';
+import { OverviewComponent } from './components/control/overview/overview.component';
+import { ModificationComponent } from './components/control/modification/modification.component';
+import { GroupingComponent } from './components/control/grouping/grouping.component';
+import { DeletionComponent } from './components/control/deletion/deletion.component';
+import { DeleteUnitFormComponent } from './components/forms/delete-unit-form/delete-unit-form.component';
 
 
 @NgModule({
@@ -35,7 +39,11 @@ import { UnitOverviewComponent } from './components/control/unit-overview/unit-o
     MemberListElementComponent,
     CreateUnitFormComponent,
     CreateMemberFormComponent,
-    UnitOverviewComponent
+    OverviewComponent,
+    ModificationComponent,
+    GroupingComponent,
+    DeletionComponent,
+    DeleteUnitFormComponent
   ],
   imports: [
     BrowserModule,

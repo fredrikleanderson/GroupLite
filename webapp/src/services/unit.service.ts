@@ -21,5 +21,9 @@ export class UnitService {
   getUnit(unitCode:string): Observable<Unit>{
     return this.http.get<Unit>(this.apiSvc.getBaseUrl() + this.endpoint + unitCode, this.apiSvc.getJsonOptions())
   }
+  
+  deleteUnit(unitCode:string): Observable<boolean>{
+    return this.http.delete<boolean>(this.apiSvc.getBaseUrl() + this.endpoint + unitCode, this.apiSvc.getJsonOptions())
+  }
 
 }

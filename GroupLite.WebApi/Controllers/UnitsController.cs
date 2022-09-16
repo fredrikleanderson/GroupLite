@@ -36,7 +36,7 @@ namespace GroupLite.WebApi.Controllers
             return response == null ? BadRequest() : Ok(response);
         }
 
-        [HttpDelete]
+        [HttpDelete("{unitCode}")]
         public async Task<IActionResult> Delete(string unitCode)
         {
             bool isSuccessful = await _unitHandler.HandleDeleteRequest(unitCode);

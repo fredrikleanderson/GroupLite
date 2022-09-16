@@ -8,22 +8,10 @@ import { ActiveUnitService } from 'src/services/active-unit.service';
   templateUrl: './control-page.component.html',
   styleUrls: ['./control-page.component.scss']
 })
-export class ControlPageComponent implements OnInit, OnDestroy {
+export class ControlPageComponent implements OnInit {
 
-  unit?:Unit
-  subscription:Subscription = new Subscription
-
-  constructor(private activeUnitSvc:ActiveUnitService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.subscription = this.activeUnitSvc.getActiveUnit().subscribe({
-      next: res => {
-        this.unit = res
-      }
-    })
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe
   }
 }

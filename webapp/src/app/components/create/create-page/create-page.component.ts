@@ -17,7 +17,7 @@ export class CreatePageComponent implements OnInit {
 
   onUnitCreated(unit:Unit):void{
     this.activeUnitSvc.setActiveUnit(unit)
-    this.router.navigate(['control'])
+    this.router.navigate(['control', {outlets: {secondary: 'overview'}}])
   }
 
 }

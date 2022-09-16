@@ -1,1 +1,9 @@
-<app-unit-overview [unit]="unit"></app-unit-overview>
+<div class="d-flex flex-column">
+    <nav class="nav flex-row justify-content-center">
+        <a class="nav-link" [routerLink]="[{ outlets: { secondary: ['overview']}}]">Översikt</a>
+        <a class="nav-link" [routerLink]="[{ outlets: { secondary: ['modification']}}]">Redigera</a>
+        <a class="nav-link" [routerLink]="[{ outlets: { secondary: ['grouping']}}]">Gruppindela</a>
+        <a class="nav-link" [routerLink]="[{ outlets: { secondary: ['deletion']}}]">Radera</a>
+      </nav>
+      <router-outlet name="secondary"></router-outlet>
+</div>

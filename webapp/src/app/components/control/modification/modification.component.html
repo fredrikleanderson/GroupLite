@@ -1,1 +1,4 @@
-<p>modification works!</p>
+<div *ngIf="unit">
+    <app-create-member-form (memberAdded)="onMemberAdded($event)"></app-create-member-form>
+    <app-member-list [members]="unit.members" [options]="{showRemove: true}" (memberRemoved)="onMemberRemoved($event)"></app-member-list>
+</div>

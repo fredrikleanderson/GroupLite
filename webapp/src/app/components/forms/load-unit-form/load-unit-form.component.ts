@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Unit } from 'src/entities/unit';
 import { UnitService } from 'src/services/unit.service';
 
@@ -9,32 +9,17 @@ import { UnitService } from 'src/services/unit.service';
 })
 export class LoadUnitFormComponent implements OnInit {
 
-  @Output() unitLoaded = new EventEmitter<Unit>()
+  @Output() loadUnit = new EventEmitter<string>()
+  @Input() message?:string
+  @Input() unitCode?:string
 
-  unitCode:string = ''
-  message:string = ''
-
-  constructor(private unitSvc:UnitService) { }
+  constructor() { }
 
   onLoadUnit(e:Event):void{
     e.preventDefault
-    this.unitSvc.getUnit(this.unitCode).subscribe({
-      next: res =>{
-        this.message = 'Laddar...'
-        this.unitLoaded.emit(res)
-      },
-      error: err =>{
-        this.message = err.error
-        this.unitCode = ''
-        setTimeout(() => {
-          this.message = ''
-        }, 3000)
-      }
-    })
-  }
-
-  resetForm():void{
-    
+    this.message = 'Laddar...'
+    this.loadUnit.emit(this.unitCode)
+    this.unitCode = ''
   }
 
   ngOnInit(): void {

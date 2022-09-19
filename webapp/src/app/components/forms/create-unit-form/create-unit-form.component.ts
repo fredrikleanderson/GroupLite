@@ -43,6 +43,5 @@ export class CreateUnitFormComponent implements OnInit {
 
   onMemberRemoved(member:Member):void{
     this.model.members = this.model.members.filter(x => x != member)
-    console.log(this.model.members)
   }
 }

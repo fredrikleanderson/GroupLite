@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Unit } from 'src/entities/unit';
 import { ActiveUnitService } from 'src/services/active-unit.service';
+import { UnitService } from 'src/services/unit.service';
 
 @Component({
   selector: 'app-load-page',
@@ -10,14 +11,29 @@ import { ActiveUnitService } from 'src/services/active-unit.service';
 })
 export class LoadPageComponent implements OnInit {
 
-  constructor(private activeUnitSvc:ActiveUnitService, private router:Router) { }
+  message:string = ''
+  unitCode:string = ''
+
+  constructor(private activeUnitSvc:ActiveUnitService, private unitSvc:UnitService, private router:Router) { }
 
   ngOnInit(): void {
   }
 
-  onUnitLoaded(unit:Unit){
-    this.activeUnitSvc.setActiveUnit(unit)
-    this.router.navigate(['control', {outlets: {secondary: 'overview'}}])
+  onLoadUnit(unitCode:string):void{
+      
+    this.unitSvc.getUnit(unitCode).subscribe({
+      next: res =>{
+        this.message = 'Laddar...'
+        this.activeUnitSvc.setActiveUnit(res)
+        this.router.navigate(['control', {outlets: {secondary: 'overview'}}])
+      },
+      error: err =>{
+        this.message = err.error
+        setTimeout(() => {
+          this.message = ''
+        }, 3000)
+      }
+    })
   }
 
 }

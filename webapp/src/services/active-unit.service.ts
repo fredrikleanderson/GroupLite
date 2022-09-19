@@ -22,11 +22,4 @@ export class ActiveUnitService {
     this.activeUnit.complete
   }
 
-  printActiveUnit():void{
-    this.activeUnit.asObservable().subscribe({
-      next: res => {
-        console.log(res)
-      }
-    })
-  }
 }

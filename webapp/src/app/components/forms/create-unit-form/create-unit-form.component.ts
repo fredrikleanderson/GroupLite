@@ -1,9 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Member } from 'src/entities/member';
-import { Unit } from 'src/entities/unit';
 import { MemberModel } from 'src/models/member-model';
 import { UnitModel } from 'src/models/unit-model';
-import { UnitService } from 'src/services/unit.service';
 
 @Component({
   selector: 'app-create-unit-form',
@@ -12,36 +10,20 @@ import { UnitService } from 'src/services/unit.service';
 })
 export class CreateUnitFormComponent implements OnInit {
 
-  @Output() unitCreated = new EventEmitter<Unit>()
+  @Output() createUnit = new EventEmitter<UnitModel>()
+  @Input() model?:UnitModel
+  @Input() message?:string
 
-  model:UnitModel = new UnitModel
   repetedEmail:string = ""
-  message:string = ''
 
-  constructor(private unitSvc:UnitService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   onCreateUnit(e:Event):void{
     e.preventDefault
-
-    this.unitSvc.postUnit(this.model).subscribe({
-      next: res =>{
-        this.message = 'Sparar...'
-        this.unitCreated.emit(res)
-      },
-      error: err =>{
-        console.log(err)
-      }
-    })
+    this.createUnit.emit(this.model)
   }
 
-  onMemberAdded(member:MemberModel):void{
-    this.model.members.push(member)
-  }
-
-  onMemberRemoved(member:Member):void{
-    this.model.members = this.model.members.filter(x => x != member)
-  }
 }

@@ -1,1 +1,5 @@
-<app-create-unit-form (unitCreated)="onUnitCreated($event)"></app-create-unit-form>
+<h6>Lägg till medlemmar:</h6>
+<app-create-member-form (memberAdded)="onMemberAdded($event)"></app-create-member-form>
+<app-member-list [members]="model.members" [options]="{showRemove: true}" (memberRemoved)="onMemberRemoved($event)"></app-member-list>
+<h6>Dina uppgifter:</h6>
+<app-create-unit-form [message]="message" [model]="model" (createUnit)="onCreateUnit($event)"></app-create-unit-form>

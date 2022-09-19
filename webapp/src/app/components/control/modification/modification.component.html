@@ -1,4 +1,6 @@
-<div *ngIf="unit">
+<div *ngIf="model">
     <app-create-member-form (memberAdded)="onMemberAdded($event)"></app-create-member-form>
-    <app-member-list [members]="unit.members" [options]="{showRemove: true}" (memberRemoved)="onMemberRemoved($event)"></app-member-list>
+    <button class="btn btn-success m-1" (click)="onSaveChanges($event)">Spara ändringar</button>
+    <button class="btn btn-primary m-1" (click)="onReset($event)">Återställ</button>
+    <app-member-list [members]="model.members" [options]="{showRemove: true}" (memberRemoved)="onMemberRemoved($event)"></app-member-list>
 </div>

@@ -2,7 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Member } from 'src/entities/member';
 import { Unit } from 'src/entities/unit';
+import { UnitModel } from 'src/models/unit-model';
 import { ActiveUnitService } from 'src/services/active-unit.service';
+import { UnitService } from 'src/services/unit.service';
 
 @Component({
   selector: 'app-modification',
@@ -11,40 +13,50 @@ import { ActiveUnitService } from 'src/services/active-unit.service';
 })
 export class ModificationComponent implements OnInit, OnDestroy {
 
-  unit?:Unit
+  model:UnitModel = new UnitModel()
   subscription:Subscription = new Subscription
 
-  constructor(private activeUnitSvc:ActiveUnitService) { }
+  constructor(private activeUnitSvc:ActiveUnitService, private unitSvc:UnitService) { }
 
   ngOnInit(): void {
     this.subscription = this.activeUnitSvc.getActiveUnit().subscribe({
       next: res => {
-        this.unit = res
+        this.model = JSON.parse(JSON.stringify(res))
         this.sortMembers()
       }
     })
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe
+    this.subscription.unsubscribe()
   }
 
   onMemberAdded(member:Member):void{
-    this.unit?.members.push(member)
+    this.model.members.push(member)
     this.sortMembers()
   }
 
   onMemberRemoved(member:Member):void{
-    if(this.unit){
-      this.unit.members = this.unit.members.filter(x => x != member)
-      this.sortMembers()
-    }
+    this.model.members = this.model.members.filter(x => x != member)
+    this.sortMembers()
+  }
+
+  onSaveChanges(e:Event):void{
+    e.preventDefault()
+    this.unitSvc.putUnit(this.model).subscribe({
+      next: res =>{
+        this.activeUnitSvc.setActiveUnit(res)
+      }
+    })
+  }
+
+  onReset(e:Event):void{
+    e.preventDefault()
+    this.ngOnInit()
   }
 
   private sortMembers():void{
-    if(this.unit?.members){
-      this.unit.members = this.unit?.members.sort((a, b) => a.firstName.localeCompare(b.firstName)).sort((a, b) => a.lastName.localeCompare(b.lastName))
-    }
+      this.model.members = this.model.members.sort((a, b) => a.firstName.localeCompare(b.firstName)).sort((a, b) => a.lastName.localeCompare(b.lastName))
   }
 
 }

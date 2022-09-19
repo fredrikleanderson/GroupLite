@@ -39,9 +39,16 @@ namespace GroupLite.Data
 
         public async Task<Unit?> UpdateUnit(Unit unit)
         {
-            _context.Update(unit);
+            Unit? oldUnit = await _context.Units.Include(x => x.Members).Include(x => x.Owner).FirstOrDefaultAsync(x => x.Id == unit.Id);
+
+            if(oldUnit != null)
+            {
+                oldUnit.Members = unit.Members;
+                //_context.Entry(oldUnit).State = EntityState.Modified;
+            }
+
             await _context.SaveChangesAsync();
-            return unit;
+            return oldUnit;
         }
 
         public async Task<bool> DeleteUnit(string unitCode)

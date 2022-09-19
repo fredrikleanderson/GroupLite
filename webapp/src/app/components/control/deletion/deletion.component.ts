@@ -30,7 +30,6 @@ export class DeletionComponent implements OnInit, OnDestroy {
   }
 
   onUnitDeleted():void{
-    console.log("metoden aktiverad")
     this.router.navigate(['../start'])
   }
 

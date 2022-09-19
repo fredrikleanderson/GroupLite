@@ -19,12 +19,15 @@ export class OverviewComponent implements OnInit, OnDestroy {
     this.subscription = this.activeUnitSvc.getActiveUnit().subscribe({
       next: res => {
         this.unit = res
+        if(this.unit?.members){
+          this.unit.members = this.unit.members.sort((a, b) => a.firstName.localeCompare(b.firstName)).sort((a, b) => a.lastName.localeCompare(b.lastName))
+        }
       }
     })
   }
 
   ngOnDestroy(): void {
-    this.subscription.unsubscribe
+    this.subscription.unsubscribe()
   }
 
   onCopy(e:Event){

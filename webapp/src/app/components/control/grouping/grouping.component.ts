@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Group } from 'src/entities/group';
 import { Unit } from 'src/entities/unit';
 import { ActiveUnitService } from 'src/services/active-unit.service';
 import { GroupGeneratorService } from 'src/services/group-generator.service';
@@ -11,6 +12,7 @@ import { GroupGeneratorService } from 'src/services/group-generator.service';
 })
 export class GroupingComponent implements OnInit, OnDestroy {
 
+  groups?:Group[]
   unit?:Unit
   subscription:Subscription = new Subscription
 
@@ -31,8 +33,8 @@ export class GroupingComponent implements OnInit, OnDestroy {
   onGenerateGroups(e:Event):void{
     e.preventDefault()
     if(this.unit){
-      let groups = this.groupGeneratorSvc.generateGroups(this.unit.members, 2)
-      console.log(groups)
+      this.groups = this.groupGeneratorSvc.generateGroups(JSON.parse(JSON.stringify(this.unit.members)), 3)
+      console.log(this.groups)
     }
   }
 

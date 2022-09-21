@@ -16,9 +16,9 @@ namespace GroupLite.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<UnitResponse>> Post(UnitRequest unitRequest)
+        public async Task<ActionResult<UnitResponse>> Post(UnitRequest request)
         {
-            UnitResponse? response = await _unitHandler.HandlePostReqeust(unitRequest);
+            UnitResponse? response = await _unitHandler.HandlePostReqeust(request);
             return response == null ? BadRequest() : Ok(response); 
         }
 
@@ -30,9 +30,9 @@ namespace GroupLite.WebApi.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put(UnitRequest unitRequest)
+        public async Task<IActionResult> Put(UnitRequest request)
         {
-            UnitResponse? response = await _unitHandler.HandlePutRequest(unitRequest);
+            UnitResponse? response = await _unitHandler.HandlePutRequest(request);
             return response == null ? BadRequest() : Ok(response);
         }
 

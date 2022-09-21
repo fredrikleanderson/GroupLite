@@ -17,9 +17,9 @@ namespace GroupLite.Handlers
             _dataService = dataService;
         }
 
-        public async Task<UnitResponse> HandlePostReqeust(UnitRequest unitRequest)
+        public async Task<UnitResponse> HandlePostReqeust(UnitRequest request)
         {
-            return _mapper.Map<UnitResponse>(await _dataService.CreateUnit(_mapper.Map<Unit>(unitRequest)));
+            return _mapper.Map<UnitResponse>(await _dataService.CreateUnit(_mapper.Map<Unit>(request)));
         }
 
         public async Task<UnitResponse> HandleGetRequest(string unitCode)
@@ -27,9 +27,9 @@ namespace GroupLite.Handlers
             return _mapper.Map<UnitResponse>(await _dataService.ReadUnit(unitCode));
         }
 
-        public async Task<UnitResponse?> HandlePutRequest(UnitRequest unitRequest)
+        public async Task<UnitResponse?> HandlePutRequest(UnitRequest request)
         {
-            return _mapper.Map<UnitResponse>(await _dataService.UpdateUnit(_mapper.Map<Unit>(unitRequest)));
+            return _mapper.Map<UnitResponse>(await _dataService.UpdateUnit(_mapper.Map<Unit>(request)));
         }
 
         public async Task<bool> HandleDeleteRequest(string unitCode)

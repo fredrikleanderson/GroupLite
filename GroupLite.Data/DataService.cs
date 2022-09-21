@@ -44,7 +44,6 @@ namespace GroupLite.Data
             if(oldUnit != null)
             {
                 oldUnit.Members = unit.Members;
-                //_context.Entry(oldUnit).State = EntityState.Modified;
             }
 
             await _context.SaveChangesAsync();

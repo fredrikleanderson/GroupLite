@@ -1,1 +1,7 @@
-<button class="btn btn-primary" (click)="onGenerateGroups($event)">Test</button>
+<div class="d-flex flex-row justify-content-center col-sm2">
+    <app-generate-groups-form [options]="options" (generateGroups)="onGenerateGroups($event)"></app-generate-groups-form>
+</div>
+<div *ngFor="let group of groups; let i = index">
+    <h6>Grupp {{i+1}}</h6>
+    <app-member-list [members]="group.members"></app-member-list>
+</div>

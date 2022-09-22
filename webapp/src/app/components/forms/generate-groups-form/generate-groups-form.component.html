@@ -1,0 +1,5 @@
+<form class="d-flex flex-column align-items-center" *ngIf="options" (submit)="onGenerateGroups($event)">
+    <label class="form-label">Gruppstorlek: {{options.numberOfGroups}}</label>
+    <input type="range" class="form-range" min="2" max="{{options.maxNumberOfGroups}}" [(ngModel)]="options.numberOfGroups" name="numberOfGroups">
+    <input type="submit" ngClass="btn btn-success mx-2" value="Generera grupper">
+</form>

@@ -11,19 +11,13 @@ export class GroupGeneratorService {
   constructor() { }
 
   generateGroups(members:Member[], numberOfGroups:number):Group[]{
-    
-    const result:GroupModel[] = Array(numberOfGroups)
-    for(let i = 0; i < result.length; i++) result[i] = new GroupModel()
+    return this.populateGroups(Array(numberOfGroups).fill(null).map(x => new GroupModel()), members, 0, Math.floor(Math.random() * members.length))
+  }
 
-    while(members.length > 0){
-      for(let i = 0; i < result.length; i++){
-        let randomNumber = Math.floor(Math.random() * members.length)
-        result[i].members.push(members[randomNumber])
-        members.splice(randomNumber, 1)
-        if(members.length < 1) break
-      }
-    }
-    
-    return result
+  private populateGroups(groups:Group[], members:Member[], currentIndex:number, randomNumber:number):Group[]{
+    if(members.length < 1) return groups
+    groups[currentIndex].members.push(members[randomNumber])
+    members.splice(randomNumber, 1)
+    return this.populateGroups(groups, members, currentIndex = currentIndex === groups.length - 1 ? 0 : currentIndex + 1, Math.floor(Math.random() * members.length))
   }
 }

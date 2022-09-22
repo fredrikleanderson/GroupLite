@@ -22,6 +22,7 @@ import { ModificationComponent } from './components/control/modification/modific
 import { GroupingComponent } from './components/control/grouping/grouping.component';
 import { DeletionComponent } from './components/control/deletion/deletion.component';
 import { DeleteUnitFormComponent } from './components/forms/delete-unit-form/delete-unit-form.component';
+import { GenerateGroupsFormComponent } from './components/forms/generate-groups-form/generate-groups-form.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { DeleteUnitFormComponent } from './components/forms/delete-unit-form/del
     ModificationComponent,
     GroupingComponent,
     DeletionComponent,
-    DeleteUnitFormComponent
+    DeleteUnitFormComponent,
+    GenerateGroupsFormComponent
   ],
   imports: [
     BrowserModule,

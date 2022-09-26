@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { GenerateGroupOptions } from 'src/options/generate-group-options';
 
 @Component({
   selector: 'app-generate-groups-form',
@@ -8,17 +7,27 @@ import { GenerateGroupOptions } from 'src/options/generate-group-options';
 })
 export class GenerateGroupsFormComponent implements OnInit {
 
-  @Output() generateGroups = new EventEmitter<GenerateGroupOptions>()
-  @Input() options?:GenerateGroupOptions
+  @Output() generateGroups = new EventEmitter<number>()
+  @Input() numberOfMembers?:number
+  maxNumber:number = 2
+  model:number = 2
+  groupingParameter:string = 'minSize'
 
   constructor() { }
 
   ngOnInit(): void {
+    this.maxNumber = Math.floor((this.numberOfMembers ?? 4) / 2)
   }
 
-  onGenerateGroups(e:Event):void{
+  onSubmit(e:Event):void{
     e.preventDefault()
-    this.generateGroups.emit(this.options)
+    if(this.groupingParameter === 'minSize'){
+      this.generateGroups.emit(Math.floor((this.numberOfMembers ?? 2) / this.model))
+    } else if(this.groupingParameter === 'maxSize'){
+      this.generateGroups.emit(Math.ceil((this.numberOfMembers ?? 2) / this.model))
+    } else if(this.groupingParameter === 'number'){
+      this.generateGroups.emit(this.model)
+    }
   }
 
 }

@@ -13,7 +13,6 @@ import { GroupGeneratorService } from 'src/services/group-generator.service';
 })
 export class GroupingComponent implements OnInit, OnDestroy {
 
-  options:GenerateGroupOptions = new GenerateGroupOptions()
   groups?:Group[]
   unit?:Unit
   subscription:Subscription = new Subscription
@@ -24,9 +23,6 @@ export class GroupingComponent implements OnInit, OnDestroy {
     this.subscription = this.activeUnitSvc.getActiveUnit().subscribe({
       next: res => {
         this.unit = res
-        if(this.unit){
-          this.options.maxNumberOfGroups = Math.floor(this.unit?.members.length / 2) 
-        }
       }
     })
   }
@@ -35,9 +31,9 @@ export class GroupingComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe()
   }
 
-  onGenerateGroups(options:GenerateGroupOptions):void{
+  onGenerateGroups(numberOfGroups:number):void{
     if(this.unit){
-      this.groups = this.groupGeneratorSvc.generateGroups(JSON.parse(JSON.stringify(this.unit.members)), options.numberOfGroups)
+      this.groups = this.groupGeneratorSvc.generateGroups(JSON.parse(JSON.stringify(this.unit.members)), numberOfGroups)
     }
   }
 

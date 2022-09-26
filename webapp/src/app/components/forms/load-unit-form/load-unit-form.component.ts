@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Unit } from 'src/entities/unit';
-import { UnitService } from 'src/services/unit.service';
 
 @Component({
   selector: 'app-load-unit-form',
@@ -15,7 +13,7 @@ export class LoadUnitFormComponent implements OnInit {
 
   constructor() { }
 
-  onLoadUnit(e:Event):void{
+  onSubmit(e:Event):void{
     e.preventDefault
     this.message = 'Laddar...'
     this.loadUnit.emit(this.unitCode)

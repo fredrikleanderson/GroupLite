@@ -21,7 +21,7 @@ export class CreateUnitFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCreateUnit(e:Event):void{
+  onSubmit(e:Event):void{
     e.preventDefault
     this.createUnit.emit(this.model)
   }

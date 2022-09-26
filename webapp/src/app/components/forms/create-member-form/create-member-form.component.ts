@@ -16,7 +16,7 @@ export class CreateMemberFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onAddMember(e:Event):void{
+  onSubmit(e:Event):void{
     e.preventDefault
     this.memberAdded.emit(this.model)
     this.model = new MemberModel

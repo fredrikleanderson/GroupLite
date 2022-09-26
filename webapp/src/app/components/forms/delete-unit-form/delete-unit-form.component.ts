@@ -18,7 +18,7 @@ export class DeleteUnitFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onDeleteUnit(e:Event){
+  onSubmit(e:Event){
     e.preventDefault
     this.unitSvc.deleteUnit(this.unitCode).subscribe({
       next: res => {

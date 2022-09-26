@@ -1,5 +1,17 @@
-<form class="d-flex flex-column align-items-center" *ngIf="options" (submit)="onGenerateGroups($event)">
-    <label class="form-label">Gruppstorlek: {{options.numberOfGroups}}</label>
-    <input type="range" class="form-range" min="2" max="{{options.maxNumberOfGroups}}" [(ngModel)]="options.numberOfGroups" name="numberOfGroups">
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="minSizeBtn" [(ngModel)]="groupingParameter" value="minSize">
+    <label class="form-check-label" for="minSizeBtn">Min gruppstorlek</label>
+</div>
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maxSizeBtn" [(ngModel)]="groupingParameter" value="maxSize">
+    <label class="form-check-label" for="maxSizeBtn">Max gruppstorlek</label>
+</div>
+<div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="GroupNumberBtn" [(ngModel)]="groupingParameter" value="number">
+    <label class="form-check-label" for="GroupNumberBtn">Antal grupper</label>
+</div>
+<form class="d-flex flex-column align-items-center" (submit)="onSubmit($event)">
+    <label class="form-label">{{model}}</label>
+    <input type="range" class="form-range" min="2" [max]="maxNumber" [(ngModel)]="model" name="numberOfGroups">
     <input type="submit" ngClass="btn btn-success mx-2" value="Generera grupper">
 </form>

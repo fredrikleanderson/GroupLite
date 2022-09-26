@@ -1,5 +1,5 @@
 <div class="d-flex flex-row justify-content-center col-sm2">
-    <app-generate-groups-form [options]="options" (generateGroups)="onGenerateGroups($event)"></app-generate-groups-form>
+    <app-generate-groups-form [numberOfMembers]="unit?.members?.length" (generateGroups)="onGenerateGroups($event)"></app-generate-groups-form>
 </div>
 <div *ngFor="let group of groups; let i = index">
     <h6>Grupp {{i+1}}</h6>

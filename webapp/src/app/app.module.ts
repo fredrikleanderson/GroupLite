@@ -23,6 +23,8 @@ import { GroupingComponent } from './components/control/grouping/grouping.compon
 import { DeletionComponent } from './components/control/deletion/deletion.component';
 import { DeleteUnitFormComponent } from './components/forms/delete-unit-form/delete-unit-form.component';
 import { GenerateGroupsFormComponent } from './components/forms/generate-groups-form/generate-groups-form.component';
+import { GroupListComponent } from './components/lists/group-list/group-list.component';
+import { GroupListElementComponent } from './components/lists/group-list/group-list-element/group-list-element.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { GenerateGroupsFormComponent } from './components/forms/generate-groups-
     GroupingComponent,
     DeletionComponent,
     DeleteUnitFormComponent,
-    GenerateGroupsFormComponent
+    GenerateGroupsFormComponent,
+    GroupListComponent,
+    GroupListElementComponent
   ],
   imports: [
     BrowserModule,

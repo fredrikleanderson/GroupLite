@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Group } from 'src/entities/group';
 import { Unit } from 'src/entities/unit';
-import { GenerateGroupOptions } from 'src/options/generate-group-options';
 import { ActiveUnitService } from 'src/services/active-unit.service';
 import { GroupGeneratorService } from 'src/services/group-generator.service';
 

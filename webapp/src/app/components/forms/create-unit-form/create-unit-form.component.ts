@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Member } from 'src/entities/member';
-import { MemberModel } from 'src/models/member-model';
 import { UnitModel } from 'src/models/unit-model';
 
 @Component({

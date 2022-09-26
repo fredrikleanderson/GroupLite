@@ -3,7 +3,7 @@
     <p>Ägare: {{unit.owner.firstName}} {{unit.owner.lastName}}</p>
     <div class="d-flex flex-row">
         <p>Klasskod: {{unit.code}}</p>
-        <button class="btn btn-primary" (click)="onCopy($event)">Kopiera</button>
+        <button class="btn btn-secondary btn-sm" (click)="onCopy($event)">Kopiera</button>
     </div>
     <app-member-list [members]="unit.members"></app-member-list>
 </div>

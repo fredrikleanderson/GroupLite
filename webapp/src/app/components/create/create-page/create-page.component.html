@@ -1,5 +1,12 @@
-<h6>Lägg till medlemmar:</h6>
-<app-create-member-form (memberAdded)="onMemberAdded($event)"></app-create-member-form>
-<app-member-list [members]="model.members" [options]="{showRemove: true}" (memberRemoved)="onMemberRemoved($event)"></app-member-list>
-<h6>Dina uppgifter:</h6>
+<h1 class="text-center m-1 p-1">➕</h1>
+<div class="d-flex flex-row justify-content-center mt-2">
+    <app-create-member-form class="m-1" (memberAdded)="onMemberAdded($event)"></app-create-member-form>
+    <app-create-unit-form class="m-1" [message]="message" [model]="model" (createUnit)="onCreateUnit($event)"></app-create-unit-form>
+</div>
+<h6 *ngIf="model.members.length > 0" class="m-3">Tillagda medlemmar</h6>
+
+<!-- <h6 class="text-center mt-3">Dina uppgifter:</h6>
 <app-create-unit-form [message]="message" [model]="model" (createUnit)="onCreateUnit($event)"></app-create-unit-form>
+<h6 class="text-center mt-3">Lägg till medlemmar:</h6>
+<app-create-member-form (memberAdded)="onMemberAdded($event)"></app-create-member-form> -->
+<app-member-list [members]="model.members" [options]="{showRemove: true}" (memberRemoved)="onMemberRemoved($event)"></app-member-list>

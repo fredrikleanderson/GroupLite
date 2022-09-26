@@ -1,3 +1,4 @@
+<h6 class="text-center">Lägg till medlemmar</h6>
 <form ngClass="d-flex flex-column align-items-center" autocomplete="off" (submit)="onSubmit($event)">
     <div ngClass="col-sm mt-2">
         <input type="text" ngClass="form-control" placeholder="Förnamn..." [(ngModel)]="model.firstName" name="memberFirstName">
@@ -6,6 +7,6 @@
         <input type="text" ngClass="form-control" placeholder="Efternamn..." [(ngModel)]="model.lastName" name="memberLastName">
     </div>
     <div ngClass="d-flex flex-row justify-content-between col-sm mt-2">
-        <input type="submit" ngClass="btn btn-success mx-2" value="Lägg till medlem" [disabled]="!model.firstName || !model.lastName">
+        <input type="submit" ngClass="btn btn-primary mx-2" value="Lägg till medlem" [disabled]="!model.firstName || !model.lastName">
     </div>
 </form>

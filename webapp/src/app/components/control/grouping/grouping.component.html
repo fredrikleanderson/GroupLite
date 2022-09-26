@@ -1,7 +1,4 @@
 <div class="d-flex flex-row justify-content-center col-sm2">
     <app-generate-groups-form [numberOfMembers]="unit?.members?.length" (generateGroups)="onGenerateGroups($event)"></app-generate-groups-form>
 </div>
-<div *ngFor="let group of groups; let i = index">
-    <h6>Grupp {{i+1}}</h6>
-    <app-member-list [members]="group.members"></app-member-list>
-</div>
+<app-group-list class="container-fluid" [groups]="groups"></app-group-list>

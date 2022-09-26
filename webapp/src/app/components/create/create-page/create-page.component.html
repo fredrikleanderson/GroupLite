@@ -1,10 +1,12 @@
 <h1 class="text-center m-1 p-1">➕</h1>
 <div class="d-flex flex-row justify-content-center mt-2">
     <app-create-member-form class="m-1" (memberAdded)="onMemberAdded($event)"></app-create-member-form>
-    <app-create-unit-form class="m-1" [message]="message" [model]="model" (createUnit)="onCreateUnit($event)"></app-create-unit-form>
+    <app-create-owner-form (ownerAdded)="onOwnerAdded($event)"></app-create-owner-form>
+    <!-- <app-create-unit-form class="m-1" [message]="message" [model]="model" (createUnit)="onCreateUnit($event)"></app-create-unit-form> -->
 </div>
+<app-display-owner [owner]="model.owner"></app-display-owner>
 <h6 *ngIf="model.members.length > 0" class="m-3">Tillagda medlemmar</h6>
-
+<button *ngIf="model.members.length > 0 && model.owner" class="btn btn-primary" (click)="onCreateUnit($event)">Spara klass</button>
 <!-- <h6 class="text-center mt-3">Dina uppgifter:</h6>
 <app-create-unit-form [message]="message" [model]="model" (createUnit)="onCreateUnit($event)"></app-create-unit-form>
 <h6 class="text-center mt-3">Lägg till medlemmar:</h6>

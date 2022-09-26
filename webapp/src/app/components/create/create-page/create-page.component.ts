@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Member } from 'src/entities/member';
-import { MemberModel } from 'src/models/member-model';
+import { Owner } from 'src/entities/owner';
 import { UnitModel } from 'src/models/unit-model';
 import { ActiveUnitService } from 'src/services/active-unit.service';
 import { UnitService } from 'src/services/unit.service';
@@ -21,8 +21,9 @@ export class CreatePageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onCreateUnit(unit:UnitModel):void{
-    this.unitSvc.postUnit(unit).subscribe({
+  onCreateUnit(e:Event):void{
+    e.preventDefault()
+    this.unitSvc.postUnit(this.model).subscribe({
       next: res =>{
         this.activeUnitSvc.setActiveUnit(res)
         this.router.navigate(['control', {outlets: {secondary: 'overview'}}])
@@ -33,7 +34,11 @@ export class CreatePageComponent implements OnInit {
     })
   }
 
-  onMemberAdded(member:MemberModel):void{
+  onOwnerAdded(owner:Owner):void{
+    this.model.owner = owner
+  }
+
+  onMemberAdded(member:Member):void{
     if(this.model){
       this.model.members.push(member)
     }

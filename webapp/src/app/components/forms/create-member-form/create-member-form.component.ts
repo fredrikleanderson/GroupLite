@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Member } from 'src/entities/member';
 import { MemberModel } from 'src/models/member-model';
 
 @Component({
@@ -8,8 +9,8 @@ import { MemberModel } from 'src/models/member-model';
 })
 export class CreateMemberFormComponent implements OnInit {
 
-  @Output() memberAdded = new EventEmitter<MemberModel>()
-  model:MemberModel = new MemberModel
+  @Output() memberAdded = new EventEmitter<Member>()
+  model:MemberModel = new MemberModel()
 
   constructor() { }
 
@@ -19,7 +20,7 @@ export class CreateMemberFormComponent implements OnInit {
   onSubmit(e:Event):void{
     e.preventDefault
     this.memberAdded.emit(this.model)
-    this.model = new MemberModel
+    this.model = new MemberModel()
   }
 
 }

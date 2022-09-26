@@ -25,6 +25,8 @@ import { DeleteUnitFormComponent } from './components/forms/delete-unit-form/del
 import { GenerateGroupsFormComponent } from './components/forms/generate-groups-form/generate-groups-form.component';
 import { GroupListComponent } from './components/lists/group-list/group-list.component';
 import { GroupListElementComponent } from './components/lists/group-list/group-list-element/group-list-element.component';
+import { CreateOwnerFormComponent } from './components/forms/create-owner-form/create-owner-form.component';
+import { DisplayOwnerComponent } from './components/display/display-owner/display-owner.component';
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import { GroupListElementComponent } from './components/lists/group-list/group-l
     DeleteUnitFormComponent,
     GenerateGroupsFormComponent,
     GroupListComponent,
-    GroupListElementComponent
+    GroupListElementComponent,
+    CreateOwnerFormComponent,
+    DisplayOwnerComponent
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,6 @@ export class CreateUnitFormComponent implements OnInit {
   @Output() createUnit = new EventEmitter<UnitModel>()
   @Input() model?:UnitModel
   @Input() message?:string
-
   repetedEmail:string = ""
 
   constructor() { }

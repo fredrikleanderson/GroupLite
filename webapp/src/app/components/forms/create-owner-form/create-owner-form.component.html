@@ -1,18 +1,7 @@
-<h6 class="text-center">Dina uppgifter</h6>
 <form ngClass="d-flex flex-column align-items-center" autocomplete="off" (submit)="onSubmit($event)">
-    <div *ngIf="model" ngClass="col-sm mt-2">
-        <input type="text" ngClass="form-control" placeholder="Förnamn..." [(ngModel)]="model.firstName" name="ownerFirstName">
-    </div>
-    <div *ngIf="model" ngClass="col-sm mt-2">
-        <input type="text" ngClass="form-control" placeholder="Efternamn..." [(ngModel)]="model.lastName" name="ownerLastName">
-    </div>
-    <div *ngIf="model" ngClass="col-sm mt-2">
-        <input type="text" ngClass="form-control" placeholder="E-postadress..." [(ngModel)]="model.email" name="ownerEmail">
-    </div>
-    <div ngClass="col-sm mt-2">
-        <input type="text" ngClass="form-control" placeholder="Repetera e-postadress..." [(ngModel)]="repeatedEmail" name="repeteOwnerEmail">
-    </div>
-    <div ngClass="d-flex flex-row justify-content-between col-sm mt-2">
-        <input type="submit" ngClass="btn btn-success mx-2" value="Lägg till uppgifter" [disabled]="!model.firstName || !model.lastName || model.email != repeatedEmail">
-    </div>
+    <input type="text" ngClass="form-control m-1" placeholder="Förnamn..." [(ngModel)]="model.firstName" name="ownerFirstName">
+    <input type="text" ngClass="form-control m-1" placeholder="Efternamn..." [(ngModel)]="model.lastName" name="ownerLastName">
+    <input type="text" ngClass="form-control m-1" placeholder="Email..." [(ngModel)]="model.email" name="ownerEmail">
+    <input type="text" ngClass="form-control m-1" placeholder="Repetera email..." [(ngModel)]="repeatedEmail" name="repeatOwnerEmail">
+    <input type="submit" ngClass="btn btn-success border-dark m-2" value="Lägg till uppgifter" [disabled]="!model.firstName || !model.lastName || model.email != repeatedEmail">
 </form>

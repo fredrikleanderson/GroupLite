@@ -1,2 +1,9 @@
-<h1 class="text-center m-1 p-1">💾</h1>
-<app-load-unit-form [message]="message" [unitCode]="unitCode" (loadUnit)="onLoadUnit($event)"></app-load-unit-form>
+<div class="container-fluid col-lg-5 d-flex justify-content-center mt-3">
+    <div class="card bg-secondary text-white">
+        <div class="card-body">
+            <h5 class="card-title">Ladda 💾</h5>
+            <p class="card-text">För att ladda en grupp, ange den klasskod du fick när gruppen skapades.</p>
+            <app-load-unit-form [message]="message" [unitCode]="unitCode" (loadUnit)="onLoadUnit($event)"></app-load-unit-form>
+        </div>
+    </div> 
+</div>

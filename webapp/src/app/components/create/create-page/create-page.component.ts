@@ -38,9 +38,15 @@ export class CreatePageComponent implements OnInit {
     this.model.owner = owner
   }
 
+  onOwnerRemoved():void{
+    this.model.owner = undefined
+  }
+
   onMemberAdded(member:Member):void{
     if(this.model){
       this.model.members.push(member)
+      console.log(document.getElementById('memberFirstName'))
+      document.getElementById('memberFirstName')!.autofocus
     }
   }
 

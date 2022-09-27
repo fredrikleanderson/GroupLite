@@ -9,6 +9,7 @@ import { Member } from 'src/entities/member';
 export class MemberListElementComponent implements OnInit {
 
   @Input() member?:Member
+  @Input() index?:number
 
   constructor() { }
 

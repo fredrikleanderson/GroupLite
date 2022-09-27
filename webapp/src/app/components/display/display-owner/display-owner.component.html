@@ -1,7 +1,19 @@
-<div *ngIf="owner" class="container">
-    <h6>Användaruppgifter</h6>
-    <p>Förnamn: {{owner.firstName}}</p>
-    <p>Efternamn: {{owner.lastName}}</p>
-    <p>E-postaddress: {{owner.email}}</p>
+<div *ngIf="owner" class="bg-secondary text-white">
+    <table class="table table-user-information">
+        <tbody>
+            <tr>        
+                <td><strong>Förnamn</strong></td>
+                <td class="text-white">{{owner.firstName}}</td>
+            </tr>
+            <tr>        
+                <td><strong>Efternamn</strong></td>
+                <td class="text-white">{{owner.lastName}}</td>
+            </tr>
+            <tr>        
+                <td><strong>Email</strong></td>
+                <td class="text-white">{{owner.email}}</td>
+            </tr>          
+        </tbody>
+    </table>
+    <button class="btn btn-success border-dark mt-2" (click)="onClick()">Ändra uppgifter</button>
 </div>
-

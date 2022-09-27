@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Owner } from 'src/entities/owner';
 
 @Component({
@@ -9,10 +9,15 @@ import { Owner } from 'src/entities/owner';
 export class DisplayOwnerComponent implements OnInit {
 
   @Input() owner?:Owner
+  @Output() ownerRemoved = new EventEmitter()
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onClick(){
+    this.ownerRemoved.emit()
   }
 
 }

@@ -1,14 +1,25 @@
-<h1 class="text-center m-1 p-1">➕</h1>
-<div class="d-flex flex-row justify-content-center mt-2">
-    <app-create-member-form class="m-1" (memberAdded)="onMemberAdded($event)"></app-create-member-form>
-    <app-create-owner-form (ownerAdded)="onOwnerAdded($event)"></app-create-owner-form>
-    <!-- <app-create-unit-form class="m-1" [message]="message" [model]="model" (createUnit)="onCreateUnit($event)"></app-create-unit-form> -->
+<div class="container-fluid col-lg-5 d-flex justify-content-center mt-3">
+    <div class="card bg-secondary text-white">
+        <div class="card-body">
+            <h5 class="card-title">Användare 👩‍🏫</h5>
+            <p class="card-text">För att skapa en grupp, ange först dina användaruppgifter. Därefter kan du lägga till vilka medlemmar som ska ingå i gruppen.</p>
+            <app-create-owner-form *ngIf="!model.owner" (ownerAdded)="onOwnerAdded($event)"></app-create-owner-form>
+            <app-display-owner [owner]="model.owner" (ownerRemoved)="onOwnerRemoved()"></app-display-owner>
+        </div>
+    </div>
 </div>
-<app-display-owner [owner]="model.owner"></app-display-owner>
-<h6 *ngIf="model.members.length > 0" class="m-3">Tillagda medlemmar</h6>
-<button *ngIf="model.members.length > 0 && model.owner" class="btn btn-primary" (click)="onCreateUnit($event)">Spara klass</button>
-<!-- <h6 class="text-center mt-3">Dina uppgifter:</h6>
-<app-create-unit-form [message]="message" [model]="model" (createUnit)="onCreateUnit($event)"></app-create-unit-form>
-<h6 class="text-center mt-3">Lägg till medlemmar:</h6>
-<app-create-member-form (memberAdded)="onMemberAdded($event)"></app-create-member-form> -->
-<app-member-list [members]="model.members" [options]="{showRemove: true}" (memberRemoved)="onMemberRemoved($event)"></app-member-list>
+
+<div *ngIf="model.owner" class="container-fluid col-lg-5 d-flex flex-column justify-content-center mt-3">
+    <div class="card bg-info text-white">
+        <div class="card-body">
+            <h5 class="card-title">Gruppmedlemmar 👨‍👩‍👧‍👦</h5>
+            <p class="card-text">För att skapa en grupp, ange dina användaruppgifter samt de medlemmar som ska ingå.</p>
+            <app-create-member-form (memberAdded)="onMemberAdded($event)"></app-create-member-form>
+            <h6 *ngIf="model.members.length > 0" class="card-title">Tillagda medlemmar</h6>
+            <app-member-list [members]="model.members" [options]="{showRemove: true}" (memberRemoved)="onMemberRemoved($event)"></app-member-list>
+        </div>
+    </div>
+</div>
+<div class="d-flex justify-content-center mb-3">
+    <button *ngIf="model.members.length > 0 && model.owner" class="btn btn-success btn-lg border-dark m-3" (click)="onCreateUnit($event)">Spara klass 💾</button>
+</div>

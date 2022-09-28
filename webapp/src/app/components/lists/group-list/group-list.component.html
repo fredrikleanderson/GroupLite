@@ -1,3 +1,8 @@
-<ul class="list-group d-flex flex-row flex-nowrap" *ngFor="let group of groups; let i = index">
-    <app-group-list-element [group]="group" [index]="i+1"></app-group-list-element>
+<ul class="list-group d-inline-flex m-1" *ngFor="let group of groups; let i = index">
+    <div class="card card-sm bg-info">
+        <div class="card-body">
+            <h6 class="card-title">Grupp {{i+1}}</h6>
+            <app-group-list-element [group]="group" [index]="i+1"></app-group-list-element>
+        </div>
+    </div>
 </ul>

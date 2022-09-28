@@ -1,4 +1,6 @@
 <div class="d-flex flex-row justify-content-center col-sm2">
     <app-generate-groups-form [numberOfMembers]="unit?.members?.length" (generateGroups)="onGenerateGroups($event)"></app-generate-groups-form>
 </div>
-<app-group-list class="container-fluid" [groups]="groups"></app-group-list>
+<div class="container-fluid d-flex justify-content-center m-1">
+    <app-group-list [groups]="groups"></app-group-list>
+</div>

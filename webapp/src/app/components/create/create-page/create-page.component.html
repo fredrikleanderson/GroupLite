@@ -1,10 +1,10 @@
-<div class="container-fluid col-lg-5 d-flex justify-content-center mt-3">
+<div class="container-fluid col-lg-5 d-flex justify-content-center m-3">
     <div class="card bg-secondary text-white">
         <div class="card-body">
             <h5 class="card-title">Användare 👩‍🏫</h5>
             <p class="card-text">För att skapa en grupp, ange först dina användaruppgifter. Därefter kan du lägga till vilka medlemmar som ska ingå i gruppen.</p>
             <app-create-owner-form *ngIf="!model.owner" (ownerAdded)="onOwnerAdded($event)"></app-create-owner-form>
-            <app-display-owner [owner]="model.owner" (ownerRemoved)="onOwnerRemoved()"></app-display-owner>
+            <app-display-owner [owner]="model.owner" [options]="{showEdit: true}" (ownerRemoved)="onOwnerRemoved()"></app-display-owner>
         </div>
     </div>
 </div>

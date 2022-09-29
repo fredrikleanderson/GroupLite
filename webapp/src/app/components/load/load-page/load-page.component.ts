@@ -12,7 +12,7 @@ import { UnitService } from 'src/services/unit.service';
 export class LoadPageComponent implements OnInit {
 
   message:string = ''
-  unitCode:string = ''
+  unitCode:string = 'JzoVqIs'
 
   constructor(private activeUnitSvc:ActiveUnitService, private unitSvc:UnitService, private router:Router) { }
 

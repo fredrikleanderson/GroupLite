@@ -1,4 +1,4 @@
-<div *ngIf="owner" class="bg-secondary text-white">
+<div *ngIf="owner">
     <table class="table table-user-information">
         <tbody>
             <tr>        
@@ -12,8 +12,12 @@
             <tr>        
                 <td><strong>Email</strong></td>
                 <td class="text-white">{{owner.email}}</td>
-            </tr>          
+            </tr>
+            <tr *ngIf="options?.activeClassCode">        
+                <td><strong>Klasskod</strong></td>
+                <td class="text-white">{{options?.activeClassCode}} <button class="btn btn-success border-dark btn-sm" (click)="onCopy($event)">Kopiera</button></td>
+            </tr>           
         </tbody>
     </table>
-    <button class="btn btn-success border-dark mt-2" (click)="onClick()">Ändra uppgifter</button>
+    <button *ngIf="options?.showEdit" class="btn btn-success border-dark mt-2" (click)="onClick()">Ändra uppgifter</button>
 </div>

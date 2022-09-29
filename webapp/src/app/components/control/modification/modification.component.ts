@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Member } from 'src/entities/member';
-import { Unit } from 'src/entities/unit';
 import { UnitModel } from 'src/models/unit-model';
 import { ActiveUnitService } from 'src/services/active-unit.service';
 import { UnitService } from 'src/services/unit.service';

@@ -1,9 +1,11 @@
-<h6>Bekräfta genom att ange klasskoden: {{unit?.code}}</h6>
-<form ngClass="d-flex flex-column align-items-center" autocomplete="off" (submit)="onSubmit($event)">
+<button *ngIf="!showConfirmation" class="btn btn-danger border-dark mx-2" (click)="showConfirmation = !showConfirmation">Radera klass</button>
+<form *ngIf="showConfirmation" ngClass="d-flex flex-column align-items-center" autocomplete="off" (submit)="onSubmit($event)">
+    <h6>Är du säker på att du vill radera klassen? Bekräfta genom att ange klasskoden.</h6>
     <div ngClass="col-sm mt-2">
-        <input type="text" ngClass="form-control" placeholder="Klasskod..." [(ngModel)]="unitCode" name="unitCode">
+        <input type="text" ngClass="form-control" placeholder="Klasskod..." [(ngModel)]="unitCodeConfirmation" name="unitCode">
     </div>
     <div ngClass="d-flex flex-row justify-content-between col-sm mt-2">
-        <input type="submit" ngClass="btn btn-success mx-2" value="Bekräfta" [disabled]="unitCode != unit?.code">
+        <input type="submit" ngClass="btn btn-success border-dark mx-2" value="Bekräfta" [disabled]="unitCodeConfirmation != unitCode">
+        <button class="btn btn-danger border-dark mx-2" (click)="showConfirmation = !showConfirmation">Ångra</button>
     </div>
 </form>

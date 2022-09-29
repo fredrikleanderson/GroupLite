@@ -1,28 +1,19 @@
-<div *ngIf="unit" class="container-fluid d-flex flex-column align-items-center">
-    <div class="card bg-info col-lg-8 text-white">
+<div *ngIf="model" class="container-fluid d-flex col-lg-8 flex-column align-items-center">
+    <div class="card bg-info text-white w-100">
         <div class="card-body">
-            <h5 class="card-title">Gruppägare 👩‍🏫</h5>
-            <app-display-owner [owner]="unit.owner" [options]="{activeClassCode: unit.code}"></app-display-owner>
+            <h5 class="card-title">Ägare 👩‍🏫</h5>
+            <app-display-owner [owner]="model.owner" [options]="{activeClassCode: model.code}"></app-display-owner>
+            <app-delete-unit-form [unitCode]="model.code" (unitDeleted)="onUnitDeleted()"></app-delete-unit-form>
         </div>
     </div>
-    <!-- <div class="card bg-info text-white">
+    <div class="card bg-info my-2 w-100">
         <div class="card-body">
-            <h5 class="card-title">Lägg till/ta bort Gruppmedlemmar 👨‍👩‍👧‍👦</h5>
-            <p class="card-text">För att skapa en grupp, ange dina användaruppgifter samt de medlemmar som ska ingå.</p>
+            <h5 class="card-title">Medlemmar 👨‍👩‍👧‍👦</h5>
+            <p class="card-text">Lägg till/ta bort gruppmedlemmar. Glöm inte att spara ändringar.</p>
             <app-create-member-form (memberAdded)="onMemberAdded($event)"></app-create-member-form>
-            <button class="btn btn-success border-dark my-1" (click)="onSaveChanges($event)" [disabled]="">Spara ändringar</button>
-            <button class="btn btn-primary border-dark m-1" (click)="onReset($event)">Återställ</button>
+            <button class="btn btn-success border-dark my-2" (click)="onSaveChanges($event)" [disabled]="!isUnchanged">Spara ändringar</button>
+            <button class="btn btn-primary border-dark m-2" (click)="onReset($event)" [disabled]="!isUnchanged">Återställ</button>
             <app-member-list [members]="model.members" [options]="{showRemove: true}" (memberRemoved)="onMemberRemoved($event)"></app-member-list>
-        </div>
-    </div> -->
-
-
-
-
-    <div class="card bg-light col-lg-8 my-2">
-        <div class="card-body">
-            <h5 class="card-title">Gruppmedlemmar 👨‍👩‍👧‍👦</h5>
-            <app-member-list [members]="unit.members"></app-member-list>
         </div>
     </div>
 </div>

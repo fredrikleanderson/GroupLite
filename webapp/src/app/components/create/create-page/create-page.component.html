@@ -1,19 +1,19 @@
-<div class="container-fluid col-lg-5 d-flex justify-content-center m-3">
+<div class="container-fluid col-lg-5 mt-3">
     <div class="card bg-secondary text-white">
         <div class="card-body">
             <h5 class="card-title">Användare 👩‍🏫</h5>
-            <p class="card-text">För att skapa en grupp, ange först dina användaruppgifter. Därefter kan du lägga till vilka medlemmar som ska ingå i gruppen.</p>
+            <p class="card-text">För att skapa en enhet, ange först dina användaruppgifter. Därefter kan du lägga till de medlemmar som ska ingå.</p>
             <app-create-owner-form *ngIf="!model.owner" (ownerAdded)="onOwnerAdded($event)"></app-create-owner-form>
             <app-display-owner [owner]="model.owner" [options]="{showEdit: true}" (ownerRemoved)="onOwnerRemoved()"></app-display-owner>
         </div>
     </div>
 </div>
 
-<div *ngIf="model.owner" class="container-fluid col-lg-5 d-flex flex-column justify-content-center mt-3">
+<div *ngIf="model.owner" class="container-fluid col-lg-5 mt-3">
     <div class="card bg-info text-white">
         <div class="card-body">
-            <h5 class="card-title">Gruppmedlemmar 👨‍👩‍👧‍👦</h5>
-            <p class="card-text">För att skapa en grupp, ange dina användaruppgifter samt de medlemmar som ska ingå.</p>
+            <h5 class="card-title">Enhetsmedlemmar 👨‍👩‍👧‍👦</h5>
+            <p class="card-text">Lägg till de medlemmar som ska ingå i enheten.</p>
             <app-create-member-form (memberAdded)="onMemberAdded($event)"></app-create-member-form>
             <h6 *ngIf="model.members.length > 0" class="card-title">Tillagda medlemmar</h6>
             <app-member-list [members]="model.members" [options]="{showRemove: true}" (memberRemoved)="onMemberRemoved($event)"></app-member-list>

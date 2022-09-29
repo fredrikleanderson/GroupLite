@@ -1,6 +1,22 @@
-<div class="d-flex flex-row justify-content-center col-sm2">
-    <app-generate-groups-form [numberOfMembers]="unit?.members?.length" (generateGroups)="onGenerateGroups($event)"></app-generate-groups-form>
+<div *ngIf="unit" class="container-fluid d-flex flex-column align-items-center">
+    <div class="card bg-info col-lg-8">
+        <div *ngIf="unit.members.length > 2" class="card-body">
+            <h5 class="card-title">Gruppgenerator 🎰</h5>
+            <p class="card-text">Välj vilket kriterium du vill generera grupper utifrån och därefter önskad gruppstorlek eller önskat antal grupper.</p>
+            <app-generate-groups-form [numberOfMembers]="unit.members.length" (generateGroups)="onGenerateGroups($event)"></app-generate-groups-form>
+        </div>
+        <div *ngIf="unit.members.length <= 2" class="card-body">
+            <h5 class="card-title">Grupper 🧑‍🤝‍🧑</h5>
+            <p class="card-text">För att kunna generera grupper behöver klassen ha fler än två medlemmar.</p>
+        </div>
+    </div>
 </div>
-<div class="container-fluid d-flex justify-content-center m-1">
-    <app-group-list [groups]="groups"></app-group-list>
+<div *ngIf="groups" class="container-fluid d-flex justify-content-center my-2">
+    <div class="card bg-light col-lg-8">
+        <div class="card-body">
+            <h5 class="card-title">Gruppindelning 🧑‍🤝‍🧑</h5>
+            <p class="card-text">Nedan presenteras de grupper som slumpats fram.</p>
+            <app-group-list [groups]="groups"></app-group-list>
+        </div>
+    </div>
 </div>

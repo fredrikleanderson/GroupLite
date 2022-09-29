@@ -10,8 +10,9 @@ import { UnitService } from 'src/services/unit.service';
 export class DeleteUnitFormComponent implements OnInit {
 
   @Output() unitDeleted = new EventEmitter<any>()
-  @Input() unit?:Unit
-  unitCode:string = ""
+  @Input() unitCode?:string
+  showConfirmation:boolean = false
+  unitCodeConfirmation:string = ''
 
   constructor(private unitSvc:UnitService) { }
 
@@ -20,11 +21,15 @@ export class DeleteUnitFormComponent implements OnInit {
 
   onSubmit(e:Event){
     e.preventDefault
-    this.unitSvc.deleteUnit(this.unitCode).subscribe({
+    this.unitSvc.deleteUnit(this.unitCodeConfirmation).subscribe({
       next: res => {
         this.unitDeleted.emit()
       }
     })
+  }
+
+  toggleConfirmation():void{
+    this.showConfirmation = !this.showConfirmation
   }
 
 }

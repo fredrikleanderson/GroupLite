@@ -21,12 +21,19 @@ export class GenerateGroupsFormComponent implements OnInit {
 
   onSubmit(e:Event):void{
     e.preventDefault()
-    if(this.groupingParameter === 'minSize'){
-      this.generateGroups.emit(Math.floor((this.numberOfMembers ?? 2) / this.model))
-    } else if(this.groupingParameter === 'maxSize'){
-      this.generateGroups.emit(Math.ceil((this.numberOfMembers ?? 2) / this.model))
-    } else if(this.groupingParameter === 'number'){
-      this.generateGroups.emit(this.model)
+
+    switch(this.groupingParameter){
+      case 'minSize':
+        this.generateGroups.emit(Math.floor((this.numberOfMembers ?? 2) / this.model))
+        break;
+      case 'maxSize':
+        this.generateGroups.emit(Math.ceil((this.numberOfMembers ?? 2) / this.model))
+        break;
+      case 'number':
+        this.generateGroups.emit(this.model)
+        break;
+      default:
+        break;
     }
   }
 

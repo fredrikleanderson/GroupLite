@@ -2,7 +2,7 @@
     <div class="card bg-info col-lg-8">
         <div *ngIf="unit.members.length > 2" class="card-body">
             <h5 class="card-title">Gruppgenerator 🎰</h5>
-            <p class="card-text">Välj vilket kriterium du vill generera grupper utifrån och därefter önskad gruppstorlek eller önskat antal grupper.</p>
+            <p class="card-text">Välj vilket kriterium du vill generera grupper utifrån och välj därefter önskad gruppstorlek eller önskat antal grupper.</p>
             <app-generate-groups-form [numberOfMembers]="unit.members.length" (generateGroups)="onGenerateGroups($event)"></app-generate-groups-form>
         </div>
         <div *ngIf="unit.members.length <= 2" class="card-body">
@@ -12,7 +12,7 @@
     </div>
 </div>
 <div *ngIf="groups" class="container-fluid d-flex justify-content-center my-2">
-    <div class="card bg-light col-lg-8">
+    <div class="card bg-info col-lg-8">
         <div class="card-body">
             <h5 class="card-title">Gruppindelning 🧑‍🤝‍🧑</h5>
             <p class="card-text">Nedan presenteras de grupper som slumpats fram.</p>

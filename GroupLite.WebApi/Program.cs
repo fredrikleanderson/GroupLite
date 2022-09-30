@@ -29,8 +29,7 @@ builder.Services.AddScoped<IDataService, DataService>();
 builder.Services.AddScoped<IUnitHandler, UnitHandler>();
 
 var app = builder.Build();
-app.UseSwagger();
-app.UseSwaggerUI();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -42,7 +41,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+app.UseCors(x => x.WithOrigins(@"https://swiftgrouping.azurewebsites.net").AllowAnyHeader().AllowAnyMethod());
 
 app.MapControllers();
 

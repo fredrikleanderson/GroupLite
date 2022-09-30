@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/ba383910-17f0-484d-ae7c-195267a99664/AppServices/subscriptions/ba383910-17f0-484d-ae7c-195267a99664/resourceGroups/swiftgrouping_rg/providers/Microsoft.Web/sites/swiftgrouping",
+    "appService.deploySubpath": "dist"
+}

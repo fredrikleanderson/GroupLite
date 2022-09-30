@@ -12,7 +12,7 @@ import { UnitService } from 'src/services/unit.service';
 export class LoadPageComponent implements OnInit {
 
   message:string = ''
-  unitCode:string = 'JzoVqIs'
+  unitCode:string = 'HIl2Btd'
 
   constructor(private activeUnitSvc:ActiveUnitService, private unitSvc:UnitService, private router:Router) { }
 
@@ -28,10 +28,17 @@ export class LoadPageComponent implements OnInit {
         this.router.navigate(['control', {outlets: {secondary: 'overview'}}])
       },
       error: err =>{
-        this.message = err.error
-        setTimeout(() => {
-          this.message = ''
-        }, 3000)
+        if(err.status === 0){
+          this.message = 'Kan inte ansluta till servern.'
+          setTimeout(() => {
+            this.message = ''
+          }, 3000)
+        } else{
+          this.message = err.error
+          setTimeout(() => {
+            this.message = ''
+          }, 3000)
+        }
       }
     })
   }

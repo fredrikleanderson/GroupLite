@@ -2,6 +2,6 @@
     <form ngClass="d-flex flex-column col-lg-5" autocomplete="off" (submit)="onSubmit($event)">
         <input type="text" ngClass="form-control my-1" placeholder="Förnamn..." [(ngModel)]="model.firstName" name="memberFirstName" id="memberFirstName">
         <input type="text" ngClass="form-control my-1" placeholder="Efternamn..." [(ngModel)]="model.lastName" name="memberLastName">
-        <input type="submit" ngClass="btn btn-primary border-dark my-2" value="Lägg till medlem" [disabled]="!model.firstName || !model.lastName">
+        <input type="submit" ngClass="btn btn-primary border-dark my-2" value="Lägg till medlem" [disabled]="!model.firstName || !model.lastName || model.firstName.length > 50 || model.lastName.length > 50">
     </form>
 </div>

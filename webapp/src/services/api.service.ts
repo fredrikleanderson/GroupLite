@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ApiService {
 
-  private baseUrl:string = 'https://localhost:7242/api/'
+  private baseUrl:string = 'https://swiftgroupingapi.azurewebsites.net/api/'
   private jsonOptions = {
     headers: new HttpHeaders({ 
       'Content-Type': 'application/json'

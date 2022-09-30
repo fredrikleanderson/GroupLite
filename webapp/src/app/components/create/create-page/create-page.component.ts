@@ -45,8 +45,6 @@ export class CreatePageComponent implements OnInit {
   onMemberAdded(member:Member):void{
     if(this.model){
       this.model.members.push(member)
-      console.log(document.getElementById('memberFirstName'))
-      document.getElementById('memberFirstName')!.autofocus
     }
   }
 

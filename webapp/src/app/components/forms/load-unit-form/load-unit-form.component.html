@@ -1,5 +1,5 @@
 <form ngClass="form-group d-flex align-items-center" autocomplete="off" (submit)="onSubmit($event)">
     <input type="text" ngClass="form-control" placeholder="Enhetskod..." [(ngModel)]="unitCode" name="unitCode">
-    <input type="submit" ngClass="btn btn-success border-dark m-2" value="Ladda enhet" [disabled]="!unitCode">
+    <input type="submit" ngClass="btn btn-success border-dark m-2" value="Ladda enhet" [disabled]="!unitCode || unitCode.length != 7">
 </form>
 <p ngClass="text-white text-center">{{message}}</p>

@@ -3,5 +3,6 @@
     <input type="text" ngClass="form-control m-1" placeholder="Efternamn..." [(ngModel)]="model.lastName" name="ownerLastName">
     <input type="text" ngClass="form-control m-1" placeholder="Email..." [(ngModel)]="model.email" name="ownerEmail">
     <input type="text" ngClass="form-control m-1" placeholder="Repetera email..." [(ngModel)]="repeatedEmail" name="repeatOwnerEmail">
-    <input type="submit" ngClass="btn btn-success border-dark m-2" value="Lägg till uppgifter" [disabled]="!model.firstName || !model.lastName || model.email != repeatedEmail">
+    <input type="submit" ngClass="btn btn-success border-dark m-2" value="Lägg till uppgifter" [disabled]="!model.firstName || model.firstName.length > 50 || model.lastName.length > 50 || !model.lastName || model.email != repeatedEmail">
 </form>
+<p ngClass="text-white text-center">{{message}}</p>

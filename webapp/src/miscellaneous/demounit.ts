@@ -37,7 +37,7 @@ export const demoUnit = {
       },
       {
         "firstName": "Karin",
-        "lastName": "Södder"
+        "lastName": "Söder"
       },
       {
         "firstName": "Mamma",

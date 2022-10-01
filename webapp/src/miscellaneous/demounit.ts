@@ -88,8 +88,8 @@ export const demoUnit = {
         "lastName": "Braun"
       },
       {
-        "firstName": "Joel",
-        "lastName": "Lantz"
+        "firstName": "Robin",
+        "lastName": "Drägglund"
       },
       {
         "firstName": "Arttu",

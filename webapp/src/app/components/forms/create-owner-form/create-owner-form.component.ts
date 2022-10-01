@@ -22,9 +22,10 @@ export class CreateOwnerFormComponent implements OnInit {
   onSubmit(e:Event):void{
     e.preventDefault()
     if(this.emailIsValid()){
-    this.ownerAdded.emit(this.model)
-    this.model = new OwnerModel()
-    this.repeatedEmail = ''
+      this.model.email = this.model.email.toLowerCase()
+      this.ownerAdded.emit(this.model)
+      this.model = new OwnerModel()
+      this.repeatedEmail = ''
     } else {
       this.message = 'Ogiltig emailaddress.'
       this.model.email = ''
@@ -36,7 +37,7 @@ export class CreateOwnerFormComponent implements OnInit {
   }
 
   private emailIsValid():boolean{
-    return new RegExp("^[a-z0-9._-]{1,70}@[a-z]{1,25}\\.[a-z]{2,3}$").test(this.model.email)
+    return new RegExp("^[a-z0-9._-]{1,70}@[a-z]{1,25}\\.[a-z]{2,3}$").test(this.model.email.toLowerCase())
   }
 
 }

@@ -9,23 +9,19 @@ import { UnitService } from 'src/services/unit.service';
 })
 export class DeleteUnitFormComponent implements OnInit {
 
-  @Output() unitDeleted = new EventEmitter<any>()
+  @Output() unitDeleted = new EventEmitter<string>()
   @Input() unitCode?:string
   showConfirmation:boolean = false
   unitCodeConfirmation:string = ''
 
-  constructor(private unitSvc:UnitService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   onSubmit(e:Event){
     e.preventDefault
-    this.unitSvc.deleteUnit(this.unitCodeConfirmation).subscribe({
-      next: res => {
-        this.unitDeleted.emit()
-      }
-    })
+    this.unitDeleted.emit(this.unitCodeConfirmation)
   }
 
   toggleConfirmation():void{

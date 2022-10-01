@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { AboutPageComponent } from './components/about/about-page/about-page.component';
 import { CreatePageComponent } from './components/create/create-page/create-page.component';
 import { LoadPageComponent } from './components/load/load-page/load-page.component';
 import { StartPageComponent } from './components/start/start-page/start-page.component';
@@ -28,7 +27,7 @@ import { DisplayOwnerComponent } from './components/display/display-owner/displa
   declarations: [
     AppComponent,
     NavbarComponent,
-    AboutPageComponent,
+
     CreatePageComponent,
     LoadPageComponent,
     StartPageComponent,

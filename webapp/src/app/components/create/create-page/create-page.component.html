@@ -10,7 +10,7 @@
 </div>
 
 <div *ngIf="model.owner" class="container-fluid col-lg-5 mt-3">
-    <div class="card bg-info text-white">
+    <div class="card bg-info">
         <div class="card-body">
             <h5 class="card-title">Enhetsmedlemmar 👨‍👩‍👧‍👦</h5>
             <p class="card-text">Lägg till de medlemmar som ska ingå i enheten.</p>
@@ -20,6 +20,7 @@
         </div>
     </div>
 </div>
-<div class="d-flex justify-content-center mb-3">
-    <button *ngIf="model.members.length > 0 && model.owner" class="btn btn-success btn-lg border-dark m-3" (click)="onCreateUnit($event)">Spara klass 💾</button>
+<div *ngIf="model.members.length > 0 && model.owner" class="d-flex flex-column align-items-center mb-3">
+    <button  class="btn btn-success btn-lg border-dark m-2" (click)="onCreateUnit($event)">Spara klass 💾</button>
+    <p class="text-center"><small>Glöm inte att hålla rätt på den enhetskod som du får när enheten skapats.</small></p>
 </div>

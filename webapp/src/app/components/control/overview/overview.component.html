@@ -3,7 +3,7 @@
         <div class="card-body">
             <h5 class="card-title">Ägare 👩‍🏫</h5>
             <app-display-owner [owner]="model.owner" [options]="{activeClassCode: model.code}"></app-display-owner>
-            <app-delete-unit-form [unitCode]="model.code" (unitDeleted)="onUnitDeleted()"></app-delete-unit-form>
+            <app-delete-unit-form [unitCode]="model.code" (unitDeleted)="onUnitDeleted($event)"></app-delete-unit-form>
         </div>
     </div>
     <div class="card bg-info my-2 w-100">
@@ -11,8 +11,11 @@
             <h5 class="card-title">Medlemmar 👨‍👩‍👧‍👦</h5>
             <p class="card-text">Lägg till/ta bort gruppmedlemmar. Glöm inte att spara ändringar.</p>
             <app-create-member-form (memberAdded)="onMemberAdded($event)"></app-create-member-form>
-            <button class="btn btn-success border-dark my-2" (click)="onSaveChanges($event)" [disabled]="!isUnchanged">Spara ändringar</button>
-            <button class="btn btn-primary border-dark m-2" (click)="onReset($event)" [disabled]="!isUnchanged">Återställ</button>
+            <div>
+                <button class="btn btn-success border-dark my-2" (click)="onSaveChanges($event)" [disabled]="!isUnchanged">Spara ändringar</button>
+                <button class="btn btn-primary border-dark m-2" (click)="onReset($event)" [disabled]="!isUnchanged">Återställ</button>
+            </div>
+            <small>Totalt antal medlemmar: {{model.members.length}}</small>
             <app-member-list [members]="model.members" [options]="{showRemove: true}" (memberRemoved)="onMemberRemoved($event)"></app-member-list>
         </div>
     </div>

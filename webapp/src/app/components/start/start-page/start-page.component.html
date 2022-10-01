@@ -1,11 +1,14 @@
 <div class="container-fluid col-lg-5 d-flex flex-row justify-content-center mt-3">
     <div class="card bg-secondary text-white">
         <div class="card-body">
-          <h5 class="card-title">Välj enhet</h5>
-          <p class="card-text">För att använda tjänsten behöver du en enhet. Välj mellan att skapa ny eller ladda befintlig.</p>
-          <div class="d-flex flex-row justify-content-evenly m-1">
-            <button class="btn btn-success btn-lg border-dark mt-1 mb-1" [routerLink]="['../create']">Skapa ➕</button>
-            <button class="btn btn-primary btn-lg border-dark mt-1 mb-1" [routerLink]="['../load']">Ladda 💾</button>
+          <h5 class="card-title">Välkommen</h5>
+          <p class="card-text">I behov av nya grupper till NO-projektet? Behövs lag till knypplingssällskapets årliga tipsrunda? Erfordras en rockad inom swingersföreningens konstellationer? SwiftGrouping tillgodoser dina behov av randomiserade grupper.</p>
+          <p class="card-text">Svidande kritik, stämningsansökningar, hot, hat och övriga trakasserier skickas med fördel till <a class="link-info" href="mailto:leanderson.fredrik@gmail.com">leanderson.fredrik@gmail.com</a></p>
+          <p class="card-text">För att använda tjänsten behöver du en enhet. Välj mellan att skapa ny, ladda befintlig eller använd demoenheten för att testa applikaitonen.</p>
+          <div class="d-flex flex-row justify-content-center m-1">
+            <button class="btn btn-success btn-lg border-dark m-2" [routerLink]="['../create']">Skapa ➕</button>
+            <button class="btn btn-primary btn-lg border-dark m-2" [routerLink]="['../load']">Ladda 💾</button>
+            <button class="btn btn-warning btn-lg border-dark m-2" (click)="onLaunchDemo($event)">Demo 💿</button>
         </div>
         </div>
     </div> 

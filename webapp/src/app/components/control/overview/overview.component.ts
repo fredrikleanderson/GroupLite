@@ -59,16 +59,30 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
   onSaveChanges(e:Event):void{
     e.preventDefault()
+    if(this.model.code === 'demo' && this.model.owner){
+      this.activeUnitSvc.setActiveUnit({id: 0, code: this.model.code, owner: this.model.owner, members: this.model.members})
+    } else {
     this.unitSvc.putUnit(this.model).subscribe({
       next: res =>{
         this.activeUnitSvc.setActiveUnit(res)
         this.isUnchanged = false
       }
     })
+    }
   }
 
-  onUnitDeleted():void{
-    this.router.navigate(['../start'])
+  onUnitDeleted(unitCode:string):void{
+    if(this.model.code === 'demo'){
+      this.activeUnitSvc.clearActiveUnit()
+        this.router.navigate(['../start'])
+    } else{
+    this.unitSvc.deleteUnit(unitCode).subscribe({
+      next: res => {
+        this.activeUnitSvc.clearActiveUnit()
+        this.router.navigate(['../start'])
+      }
+    })
+    }
   }
 
   private sortMembers():void{

@@ -26,16 +26,19 @@ export class OverviewComponent implements OnInit, OnDestroy {
     this.subscription = this.activeUnitSvc.getActiveUnit().subscribe({
       next: res => {
         this.model = res
+        this.originalCopy = JSON.parse(JSON.stringify(res))
         if(this.model){
           this.model.members.map(member => member.isPresent = true)
         }
-        this.originalCopy = JSON.parse(JSON.stringify(this.model))
         this.sortMembers()
       }
     })
   }
 
   ngOnDestroy(): void {
+    if(this.isChanged && this.originalCopy){
+      this.activeUnitSvc.setActiveUnit(this.originalCopy)
+    }
     this.subscription.unsubscribe()
   }
 
@@ -50,7 +53,10 @@ export class OverviewComponent implements OnInit, OnDestroy {
     e.preventDefault()
     this.isChanged = false
     this.model = JSON.parse(JSON.stringify(this.originalCopy))
-    this.model?.members.map(member => member.isPresent = true)
+    if(this.model){
+      this.activeUnitSvc.setActiveUnit(this.model)
+      this.model.members.map(member => member.isPresent = true)
+    }
     this.sortMembers()
   }
 
@@ -86,6 +92,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
         this.unitSvc.putUnit(this.model).subscribe({
           next: res =>{
             this.activeUnitSvc.setActiveUnit(res)
+            this.originalCopy = JSON.parse(JSON.stringify(res))
             this.isChanged = false
             this.loading = false
             this.message = 'Sparat'

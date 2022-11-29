@@ -24,7 +24,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.activeUnitSvc.getActiveUnit().subscribe({
       next: res => {
-        res?.members.map(member => member.isPresent)
+        res?.members.map(member => member.isPresent = true)
         this.model = res
         this.originalCopy = JSON.parse(JSON.stringify(res))
         this.sortMembers()
@@ -47,7 +47,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
     e.preventDefault()
     this.isChanged = false
     this.model = JSON.parse(JSON.stringify(this.originalCopy))
-    this.model?.members.map(member => member.isPresent)
+    this.model?.members.map(member => member.isPresent = true)
     this.sortMembers()
   }
 

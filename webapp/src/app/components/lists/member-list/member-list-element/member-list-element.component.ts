@@ -6,11 +6,14 @@ import { Member } from 'src/entities/member';
   templateUrl: './member-list-element.component.html',
   styleUrls: ['./member-list-element.component.scss']
 })
-export class MemberListElementComponent {
+export class MemberListElementComponent implements OnInit {
 
   @Input() member?:Member
   @Input() index?:number
   @Input() showIsPresent?:boolean
 
   constructor() { }
+
+  ngOnInit(): void {
+  }
 }

@@ -4,5 +4,5 @@ export interface Member {
     lastName:string
 
     //Client
-    isPresent?:boolean
+    isPresent:boolean
 }

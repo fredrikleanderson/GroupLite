@@ -15,6 +15,7 @@
                 <button class="btn btn-success border-dark my-2" (click)="onSaveChanges($event)" [disabled]="!isChanged || loading">Spara ändringar</button>
                 <button class="btn btn-primary border-dark m-2" (click)="onReset($event)" [disabled]="!isChanged || loading">Återställ</button>
                 <span><i *ngIf="loading" class="fas fa-circle-notch fa-spin m-1"></i></span>
+                <span class="badge bg-success" *ngIf="message">{{message}}</span>
             </div>
                 <div class="list-group-item d-flex align-items-center justify-content-between pl-1 pt-0 pb-0 bg-cream">
                     <span><b>Närvarande?</b></span>

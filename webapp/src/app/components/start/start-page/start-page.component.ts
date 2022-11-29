@@ -17,7 +17,6 @@ export class StartPageComponent implements OnInit {
 
   onLaunchDemo(e:Event):void{
     e.preventDefault()
-    demoUnit.members.map(member => member.isPresent = true)
     this.activeUnitSvc.setActiveUnit(JSON.parse(JSON.stringify(demoUnit)))
     this.router.navigate(['control', {outlets: {secondary: 'overview'}}])
   }

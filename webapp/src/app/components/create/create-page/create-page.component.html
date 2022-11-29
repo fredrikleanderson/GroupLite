@@ -22,8 +22,6 @@
 </div>
 <div *ngIf="model.members.length > 0 && model.owner" class="d-flex flex-column align-items-center mb-3">
     <button  class="btn btn-success btn-lg border-dark m-2" (click)="onCreateUnit($event)">Spara klass 💾</button>
-    <div class="d-flex justify-content-center m-3">
-        <i *ngIf="saving" class="fas fa-circle-notch fa-spin"></i>
-    </div>
+    <i *ngIf="saving" class="fas fa-circle-notch fa-spin"></i>
     <p class="text-center"><small>Glöm inte att hålla rätt på den enhetskod som du får när enheten skapats.</small></p>
 </div>

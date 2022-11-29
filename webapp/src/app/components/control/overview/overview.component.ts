@@ -18,15 +18,18 @@ export class OverviewComponent implements OnInit, OnDestroy {
   isChanged:boolean = false
   subscription:Subscription = new Subscription
   loading:boolean = false
+  message?:string
 
   constructor(private activeUnitSvc:ActiveUnitService, private unitSvc:UnitService, private router:Router) { }
 
   ngOnInit(): void {
     this.subscription = this.activeUnitSvc.getActiveUnit().subscribe({
       next: res => {
-        res?.members.map(member => member.isPresent = true)
         this.model = res
-        this.originalCopy = JSON.parse(JSON.stringify(res))
+        if(this.model){
+          this.model.members.map(member => member.isPresent = true)
+        }
+        this.originalCopy = JSON.parse(JSON.stringify(this.model))
         this.sortMembers()
       }
     })
@@ -69,18 +72,23 @@ export class OverviewComponent implements OnInit, OnDestroy {
     e.preventDefault()
     this.loading = true
     if(this.model?.code === 'demo' && this.model.owner){
-      this.activeUnitSvc.setActiveUnit({id: 0, code: this.model.code, owner: this.model.owner, members: this.model.members})
+      this.activeUnitSvc.setActiveUnit(this.model)
       setTimeout(() => {
         this.isChanged = false
         this.loading = false
+        this.message = 'Sparat'
+        setTimeout(() => {
+          this.message = ''
+        }, 2000);
       }, 1000);
     } else {
       if(this.model){
-        this.unitSvc.putUnit({code: this.model.code, owner: this.model.owner, members: this.model.members}).subscribe({
+        this.unitSvc.putUnit(this.model).subscribe({
           next: res =>{
             this.activeUnitSvc.setActiveUnit(res)
             this.isChanged = false
             this.loading = false
+            this.message = 'Sparat'
           }
         })
       }

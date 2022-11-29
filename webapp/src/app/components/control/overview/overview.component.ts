@@ -24,6 +24,7 @@ export class OverviewComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.activeUnitSvc.getActiveUnit().subscribe({
       next: res => {
+        res?.members.map(member => member.isPresent)
         this.model = res
         this.originalCopy = JSON.parse(JSON.stringify(res))
         this.sortMembers()

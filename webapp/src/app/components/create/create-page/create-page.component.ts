@@ -15,6 +15,7 @@ export class CreatePageComponent implements OnInit {
 
   model:UnitModel = new UnitModel()
   message:string = ''
+  saving:boolean = false
 
   constructor(private activeUnitSvc:ActiveUnitService, private unitSvc:UnitService, private router:Router) { }
 
@@ -23,13 +24,15 @@ export class CreatePageComponent implements OnInit {
 
   onCreateUnit(e:Event):void{
     e.preventDefault()
+    this.saving = true
     this.unitSvc.postUnit(this.model).subscribe({
       next: res =>{
         this.activeUnitSvc.setActiveUnit(res)
+        this.saving = false
         this.router.navigate(['control', {outlets: {secondary: 'overview'}}])
       },
       error: err => {
-        console.log(err)
+        this.saving = false
       }
     })
   }

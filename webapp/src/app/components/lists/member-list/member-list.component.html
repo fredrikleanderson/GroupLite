@@ -1,5 +1,5 @@
 <ul class="list-group" *ngFor="let member of members; let index = index">
-    <app-member-list-element [member]="member" [index]="index">
+    <app-member-list-element [member]="member" [index]="index" [showIsPresent]="options?.showIsPresent">
         <button *ngIf="options?.showRemove" class="btn" (click)="onRemoveMember($event, member)">⛔️</button>
     </app-member-list-element>
 </ul>

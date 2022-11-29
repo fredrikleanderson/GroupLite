@@ -1,4 +1,7 @@
 <li [ngClass]="index! % 2 === 0 ? 'bg-silk' : 'bg-cream'" class="list-group-item d-flex align-items-center justify-content-between pl-1 pt-0 pb-0">
-    <div><span>{{member?.firstName}} {{member?.lastName}}</span></div>
+    <div>
+        <input type="checkbox" class="m-1" [(ngModel)]="member!.isPresent" *ngIf="showIsPresent">
+        <span>{{member?.firstName}} {{member?.lastName}}</span>
+    </div>
     <ng-content></ng-content>
 </li>

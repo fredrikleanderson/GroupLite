@@ -1,7 +1,7 @@
 <div class="container-fluid col-lg-5 mt-3">
     <div class="card bg-secondary text-white">
         <div class="card-body">
-            <h5 class="card-title">Användare 👩‍🏫</h5>
+            <h5 class="card-title">Användare 👩<i class="fa-solid fa-circle-user"></i></h5>
             <p class="card-text">För att skapa en enhet, ange först dina användaruppgifter. Därefter kan du lägga till de medlemmar som ska ingå.</p>
             <app-create-owner-form *ngIf="!model.owner" (ownerAdded)="onOwnerAdded($event)"></app-create-owner-form>
             <app-display-owner [owner]="model.owner" [options]="{showEdit: true}" (ownerRemoved)="onOwnerRemoved()"></app-display-owner>
@@ -22,5 +22,8 @@
 </div>
 <div *ngIf="model.members.length > 0 && model.owner" class="d-flex flex-column align-items-center mb-3">
     <button  class="btn btn-success btn-lg border-dark m-2" (click)="onCreateUnit($event)">Spara klass 💾</button>
+    <div class="d-flex justify-content-center m-3">
+        <i *ngIf="saving" class="fas fa-circle-notch fa-spin"></i>
+    </div>
     <p class="text-center"><small>Glöm inte att hålla rätt på den enhetskod som du får när enheten skapats.</small></p>
 </div>

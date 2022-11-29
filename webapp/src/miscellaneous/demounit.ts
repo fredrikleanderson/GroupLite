@@ -9,123 +9,153 @@ export const demoUnit = {
     "members": [
       {
         "firstName": "Johanna",
-        "lastName": "Sten-Oladotter"
+        "lastName": "Sten-Oladotter",
+        "isPresent": false
       },
       {
         "firstName": "Connie",
-        "lastName": "Burgarsjö"
+        "lastName": "Burgarsjö",
+        "isPresent": false
       },
       {
         "firstName": "Beata",
-        "lastName": "Muffinmånglare"
+        "lastName": "Muffinmånglare",
+        "isPresent": false
       },
       {
         "firstName": "Mary",
-        "lastName": "Huvudjägare"
+        "lastName": "Huvudjägare",
+        "isPresent": false
       },
       {
         "firstName": "Emma",
-        "lastName": "Dräpare"
+        "lastName": "Dräpare",
+        "isPresent": false
       },
       {
         "firstName": "Cissi",
-        "lastName": "den Läspe"
+        "lastName": "den Läspe",
+        "isPresent": false
       },
       {
         "firstName": "Kicki",
-        "lastName": "Ludenqvist"
+        "lastName": "Ludenqvist",
+        "isPresent": false
       },
       {
         "firstName": "Karin",
-        "lastName": "Söder"
+        "lastName": "Söder",
+        "isPresent": false
       },
       {
         "firstName": "Mamma",
-        "lastName": "Stilett"
+        "lastName": "Stilett",
+        "isPresent": false
       },
       {
         "firstName": "Wilma",
-        "lastName": "Sirén"
+        "lastName": "Sirén",
+        "isPresent": false
       },
       {
         "firstName": "Olivia",
-        "lastName": "Ondöga"
+        "lastName": "Ondöga",
+        "isPresent": false
       },
       {
         "firstName": "Evy",
-        "lastName": "Trubble"
+        "lastName": "Trubble",
+        "isPresent": false
       },
       {
         "firstName": "Gun",
-        "lastName": "Pistol"
+        "lastName": "Pistol",
+        "isPresent": false
       },
       {
         "firstName": "Carina",
-        "lastName": "Ryssättling"
+        "lastName": "Ryssättling",
+        "isPresent": false
       },
       {
         "firstName": "Bubba",
-        "lastName": "av Grundvik"
+        "lastName": "av Grundvik",
+        "isPresent": false
       },
       {
         "firstName": "Hans-Martin",
-        "lastName": "Latmask"
+        "lastName": "Latmask",
+        "isPresent": false
       },
       {
         "firstName": "Gregor",
-        "lastName": "Näsbjörk"
+        "lastName": "Näsbjörk",
+        "isPresent": false
       },
       {
         "firstName": "Ephraim",
-        "lastName": "Petrojovic"
+        "lastName": "Petrojovic",
+        "isPresent": false
       },
       {
         "firstName": "Ulph",
-        "lastName": "Wulfmeister"
+        "lastName": "Wulfmeister",
+        "isPresent": false
       },
       {
         "firstName": "Klaus",
-        "lastName": "Braun"
+        "lastName": "Braun",
+        "isPresent": false
       },
       {
         "firstName": "Robin",
-        "lastName": "Drägglund"
+        "lastName": "Drägglund",
+        "isPresent": false
       },
       {
         "firstName": "Arttu",
-        "lastName": "Saajola"
+        "lastName": "Saajola",
+        "isPresent": false
       },
       {
         "firstName": "Pelle",
-        "lastName": "Stridspitt"
+        "lastName": "Stridspitt",
+        "isPresent": false
       },
       {
         "firstName": "Robert",
-        "lastName": "Cop"
+        "lastName": "Cop",
+        "isPresent": false
       },
       {
         "firstName": "Sheriff",
-        "lastName": "Nygren"
+        "lastName": "Nygren",
+        "isPresent": false
       },
       {
         "firstName": "Bildsköne",
-        "lastName": "Bengtsson"
+        "lastName": "Bengtsson",
+        "isPresent": false
       },
       {
         "firstName": "Tatuerade",
-        "lastName": "Johansson"
+        "lastName": "Johansson",
+        "isPresent": false
       },
       {
         "firstName": "Torgny",
-        "lastName": "Phonehand"
+        "lastName": "Phonehand",
+        "isPresent": false
       },
       {
         "firstName": "Gustav",
-        "lastName": "Berg"
+        "lastName": "Berg",
+        "isPresent": false
       },
       {
         "firstName": "Micke",
-        "lastName": "Hängläpp"
+        "lastName": "Hängläpp",
+        "isPresent": false
       },
     ]
 }

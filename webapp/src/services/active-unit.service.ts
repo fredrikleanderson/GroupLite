@@ -19,7 +19,7 @@ export class ActiveUnitService {
   }
 
   clearActiveUnit():void{
-    this.activeUnit.complete
+    this.activeUnit.complete()
   }
 
 }

@@ -13,6 +13,7 @@ export class LoadPageComponent implements OnInit {
 
   message:string = ''
   unitCode:string = ''
+  loading:boolean = false
 
   constructor(private activeUnitSvc:ActiveUnitService, private unitSvc:UnitService, private router:Router) { }
 
@@ -20,14 +21,17 @@ export class LoadPageComponent implements OnInit {
   }
 
   onLoadUnit(unitCode:string):void{
-      
+    this.loading = true
+
     this.unitSvc.getUnit(unitCode).subscribe({
       next: res =>{
+        this.loading = false
         this.message = 'Laddar...'
         this.activeUnitSvc.setActiveUnit(res)
         this.router.navigate(['control', {outlets: {secondary: 'overview'}}])
       },
       error: err =>{
+        this.loading = false
         if(err.status === 0){
           this.message = 'Kan inte ansluta till servern.'
           setTimeout(() => {

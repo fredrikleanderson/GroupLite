@@ -12,11 +12,17 @@
             <p class="card-text">Lägg till/ta bort gruppmedlemmar. Glöm inte att spara ändringar.</p>
             <app-create-member-form (memberAdded)="onMemberAdded($event)"></app-create-member-form>
             <div>
-                <button class="btn btn-success border-dark my-2" (click)="onSaveChanges($event)" [disabled]="!isUnchanged">Spara ändringar</button>
-                <button class="btn btn-primary border-dark m-2" (click)="onReset($event)" [disabled]="!isUnchanged">Återställ</button>
+                <button class="btn btn-success border-dark my-2" (click)="onSaveChanges($event)" [disabled]="!isChanged || loading">Spara ändringar</button>
+                <button class="btn btn-primary border-dark m-2" (click)="onReset($event)" [disabled]="!isChanged || loading">Återställ</button>
+                <span><i *ngIf="loading" class="fas fa-circle-notch fa-spin m-1"></i></span>
             </div>
+                <div class="list-group-item d-flex align-items-center justify-content-between pl-1 pt-0 pb-0 bg-cream">
+                    <span><b>Närvarande?</b></span>
+                    <span><b>Radera</b></span>
+                </div>
+                <ng-content></ng-content>
+            <app-member-list [members]="model.members" [options]="{showRemove: true, showIsPresent:true}" (memberRemoved)="onMemberRemoved($event)"></app-member-list>
             <small>Totalt antal medlemmar: {{model.members.length}}</small>
-            <app-member-list [members]="model.members" [options]="{showRemove: true}" (memberRemoved)="onMemberRemoved($event)"></app-member-list>
         </div>
     </div>
 </div>

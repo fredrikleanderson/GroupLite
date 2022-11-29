@@ -27,7 +27,9 @@ export class LoadPageComponent implements OnInit {
       next: res =>{
         this.loading = false
         this.message = 'Laddar...'
-        this.activeUnitSvc.setActiveUnit(res)
+        let unit = res
+        unit.members.map(member => member.isPresent = true)
+        this.activeUnitSvc.setActiveUnit(unit)
         this.router.navigate(['control', {outlets: {secondary: 'overview'}}])
       },
       error: err =>{

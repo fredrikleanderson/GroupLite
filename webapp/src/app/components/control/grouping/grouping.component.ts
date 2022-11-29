@@ -21,7 +21,7 @@ export class GroupingComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.activeUnitSvc.getActiveUnit().subscribe({
       next: res => {
-        this.unit = res
+        this.unit = JSON.parse(JSON.stringify(res))
         if(this.unit){
           this.unit.members = this.unit.members.filter(member => member.isPresent)
         }

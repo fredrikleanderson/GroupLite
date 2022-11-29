@@ -27,9 +27,6 @@ export class OverviewComponent implements OnInit, OnDestroy {
       next: res => {
         this.model = res
         this.originalCopy = JSON.parse(JSON.stringify(res))
-        if(this.model){
-          this.model.members.map(member => member.isPresent = true)
-        }
         this.sortMembers()
       }
     })
@@ -37,6 +34,10 @@ export class OverviewComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if(this.isChanged && this.originalCopy){
+      this.originalCopy.members.map(member =>{
+        let modelMember = this.model?.members.find(m => m.id == member.id)
+      })
+
       this.activeUnitSvc.setActiveUnit(this.originalCopy)
     }
     this.subscription.unsubscribe()

@@ -89,6 +89,9 @@ export class OverviewComponent implements OnInit, OnDestroy {
             this.isChanged = false
             this.loading = false
             this.message = 'Sparat'
+            setTimeout(() => {
+              this.message = ''
+            }, 2000);
           }
         })
       }
